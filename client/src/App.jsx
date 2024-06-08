@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import './App.css'
-
+import './layout.scss'
 function App() {
 
   return (
-    <>
-      abc
-    </>
+    <div className="layout">
+      Hello
+    </div>
   )
 }
 
