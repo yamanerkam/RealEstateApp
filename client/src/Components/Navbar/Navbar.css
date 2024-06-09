@@ -56,6 +56,10 @@
     border-radius: 5px;
 }
 
+.left a:first-child:hover {
+    color: lightgray;
+}
+
 .left a:last-child:hover {
     background-color: #e0b844;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -63,4 +67,26 @@
 
 .left a:last-child {
     background-color: #fece51;
+}
+
+@media (max-width:901px) {
+    .right p {
+        display: none;
+    }
+}
+
+@media (max-width:783px) {
+    .right p {
+        display: block;
+    }
+
+    .links {
+        display: none;
+    }
+
+    .left {
+        display: none;
+    }
+
+
 }
