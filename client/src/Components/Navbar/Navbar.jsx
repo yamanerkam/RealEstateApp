@@ -1,6 +1,7 @@
 import React from 'react'
 import './Navbar.css'
 import { MdOutlineRealEstateAgent } from "react-icons/md";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 export default function Navbar() {
     return (
@@ -22,6 +23,9 @@ export default function Navbar() {
             <div className="left">
                 <a href="">Sign in</a>
                 <a href="">Sign up</a>
+            </div>
+            <div className="dropdown">
+                <GiHamburgerMenu size={25} />
             </div>
         </nav >
     )

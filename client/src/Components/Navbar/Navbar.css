@@ -5,6 +5,10 @@
     padding: 10px 20px;
 }
 
+.dropdown {
+    display: none;
+}
+
 .right {
     display: flex;
     align-items: center;
@@ -86,6 +90,10 @@
 
     .left {
         display: none;
+    }
+
+    .dropdown {
+        display: block;
     }
 
 
