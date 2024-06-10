@@ -33,7 +33,10 @@ export default function Navbar() {
             </div>
             <div className="dropdown">
                 <GiHamburgerMenu onClick={handleToggle} size={25} />
+
             </div>
+
+            <div className="blackArea"></div>
         </nav >
     )
 }
