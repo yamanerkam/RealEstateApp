@@ -8,6 +8,7 @@
 .dropdown {
     cursor: pointer;
     display: none;
+    transition: all 1s ease;
 }
 
 .toggleOnDD {
@@ -17,16 +18,18 @@
 
 .blackArea {
     position: absolute;
-    margin-top: 30px;
-    margin-left: 400px;
     background-color: black;
-    width: 100px;
-    height: 100px;
+    width: 160px;
+    top: 0;
+    right: -50%;
+    height: 100vh;
+    transition: all 1s ease;
 }
 
 .toggleOnBa {
-    margin-top: 30px;
-    margin-left: 240px;
+    transition: all 1s ease;
+    display: block;
+    right: 0;
 }
 
 .right {
