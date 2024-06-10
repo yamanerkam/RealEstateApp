@@ -31,12 +31,12 @@ export default function Navbar() {
                 <a href="">Sign in</a>
                 <a href="">Sign up</a>
             </div>
-            <div className="dropdown">
+            <div className={`dropdown ${toggle && 'toggleOnDD'}`}>
                 <GiHamburgerMenu onClick={handleToggle} size={25} />
 
             </div>
 
-            <div className="blackArea"></div>
+            <div className={`blackArea ${toggle && 'toggleOnBa'}`}></div>
         </nav >
     )
 }

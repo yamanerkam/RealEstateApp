@@ -10,6 +10,11 @@
     display: none;
 }
 
+.toggleOnDD {
+    z-index: 1000;
+    color: white;
+}
+
 .blackArea {
     position: absolute;
     margin-top: 30px;
@@ -17,6 +22,11 @@
     background-color: black;
     width: 100px;
     height: 100px;
+}
+
+.toggleOnBa {
+    margin-top: 30px;
+    margin-left: 240px;
 }
 
 .right {
