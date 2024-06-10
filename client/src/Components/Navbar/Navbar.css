@@ -6,7 +6,17 @@
 }
 
 .dropdown {
+    cursor: pointer;
     display: none;
+}
+
+.dropdown::after {
+    content: 'e';
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    color: white;
+
 }
 
 .right {
@@ -95,6 +105,5 @@
     .dropdown {
         display: block;
     }
-
 
 }
