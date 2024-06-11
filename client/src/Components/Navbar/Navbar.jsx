@@ -36,7 +36,16 @@ export default function Navbar() {
                 <GiHamburgerMenu onClick={handleToggle} size={25} />
             </div>
 
-            <div className={`blackArea ${toggle && 'toggleOnBa'}`}></div>
+            <div className={`blackArea ${toggle && 'toggleOnBa'}`}>
+                <div className="linksBa">
+                    <a href="">Home</a>
+                    <a href="">About</a>
+                    <a href="">Contact</a>
+                    <a href="">Agents</a>
+                    <a href="">Sign in</a>
+                    <a href="">Sign up</a>
+                </div>
+            </div>
 
 
         </nav >
