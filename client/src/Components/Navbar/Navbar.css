@@ -1,5 +1,5 @@
 .nav {
-    margin-top: 2%;
+    margin-top: 2px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -18,14 +18,13 @@
 }
 
 .blackArea {
-    position: absolute;
+    position: fixed;
+    right: -100%;
+    transition: all 2s ease;
     background-color: black;
     width: 30%;
     top: 0;
-    right: -50%;
-    height: 50%;
-    transition: all 1s ease;
-
+    height: fit-content;
 }
 
 .linksBa {
@@ -35,16 +34,33 @@
     align-items: center;
     justify-content: center;
     margin-top: 50px;
+    margin-bottom: 20px;
     font-size: 1.2em;
 }
 
 .linksBa a {
     padding: 10%;
+    position: relative;
+    transition: all 1s ease;
+}
+
+.linksBa a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    margin-top: 33%;
+    height: 2px;
+    width: 0;
+    background-color: #e0b844;
+    transition: width 1s ease;
+}
+
+.linksBa a:hover::after {
+    width: 100%;
 }
 
 .toggleOnBa {
     transition: all 1s ease;
-    display: block;
     right: 0;
 }
 
@@ -132,7 +148,7 @@
     }
 
     .dropdown {
-        display: block;
+        display: inline;
     }
 
 }
