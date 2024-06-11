@@ -1,4 +1,5 @@
 .nav {
+    margin-top: 2%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -6,20 +7,20 @@
 }
 
 .dropdown {
+    z-index: 1000;
     cursor: pointer;
     display: none;
     transition: all 1s ease;
 }
 
 .toggleOnDD {
-    z-index: 1000;
     color: white;
 }
 
 .blackArea {
     position: absolute;
     background-color: black;
-    width: 160px;
+    width: 30%;
     top: 0;
     right: -50%;
     height: 100vh;
