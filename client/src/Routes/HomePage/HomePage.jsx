@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './HomePage.css'
 import BGpng from '../../assets/bg.png'
 import ExperienceOverview from '../../Components/ExperienceOverview/ExperienceOverview.jsx'
 export default function HomePage() {
+    const [toggleBlackWhite, setToggleBlackWhite] = useState(true)
+    const handleToggle = (value) => {
+        if (value == 'buy') {
+            setToggleBlackWhite(true)
+
+        } else {
+            setToggleBlackWhite(false)
+        }
+
+    }
     return (
         <div className='home'>
 
@@ -13,7 +23,18 @@ export default function HomePage() {
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos explicabo suscipit cum eius, iure est nulla animi consequatur facilis id pariatur fugit quos laudantium temporibus dolor ea repellat provident impedit!</p>
 
                 </div>
-                <div className="search"></div>
+                <div className="search">
+                    <div className="up">
+                        <button onClick={() => handleToggle('buy')} className={`buy upBtn ${toggleBlackWhite && 'activeBtn'}`}>Buy</button>
+                        <button onClick={() => handleToggle('rent')} className={`rent upBtn ${!toggleBlackWhite && 'activeBtn'}`}>Rent</button>
+                    </div>
+                    <div className="down">
+                        <input placeholder='City Location' type="text" />
+                        <input placeholder='Min Price' type="number" />
+                        <input placeholder='Max Price' type="number" />
+                        <button>S</button>
+                    </div>
+                </div>
                 <div>
 
                     <div className="exp">

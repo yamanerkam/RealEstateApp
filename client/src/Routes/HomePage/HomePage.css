@@ -46,3 +46,29 @@
     display: flex;
     gap: 10%;
 }
+
+.upBtn {
+    cursor: pointer;
+    background-color: white;
+    padding: 20px 40px;
+    margin-bottom: 0;
+    border: 1px solid #000;
+
+}
+
+.buy {
+    background-color: white;
+}
+
+.activeBtn {
+    background-color: black;
+    color: white;
+}
+
+.rent {
+    border-left: none;
+}
+
+.down {
+    margin: 0;
+}
