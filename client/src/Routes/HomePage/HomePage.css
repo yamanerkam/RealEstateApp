@@ -1,0 +1,38 @@
+.home {
+    width: 100%;
+    display: flex;
+    padding: 1% 1% 0 2%;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.rightSide {
+    display: flex;
+}
+
+.rightSide h1 {
+    font-size: 4em;
+
+}
+
+.leftSide img {
+    position: relative;
+    margin-top: 10px;
+    top: -80px;
+    left: 5%;
+    width: 90%
+}
+
+@media (max-width: 901px) {
+    .leftSide img {
+
+        display: none;
+
+    }
+}
+
+@media (max-width: 480px) {
+    .leftSide img {
+        display: none;
+    }
+}
