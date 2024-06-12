@@ -12,12 +12,13 @@
 }
 
 .rightSide .paragraph {
-    width: 80%;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .rightSide h1 {
     font-size: 4em;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .leftSide img {
