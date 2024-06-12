@@ -8,11 +8,16 @@
 
 .rightSide {
     display: flex;
+    flex-direction: column;
+}
+
+.rightSide .paragraph {
+    width: 80%;
 }
 
 .rightSide h1 {
     font-size: 4em;
-
+    margin-bottom: 30px;
 }
 
 .leftSide img {
@@ -35,4 +40,9 @@
     .leftSide img {
         display: none;
     }
+}
+
+.exp {
+    display: flex;
+    gap: 10%;
 }

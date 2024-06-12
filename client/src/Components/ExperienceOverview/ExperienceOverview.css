@@ -1,0 +1,14 @@
+.experience {
+    display: flex;
+    flex-direction: column;
+}
+
+.experience h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.experience p {
+    font-size: 1.2em;
+    font-weight: 390;
+}
