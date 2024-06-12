@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './HomePage.css'
+import { CiSearch } from "react-icons/ci";
 import BGpng from '../../assets/bg.png'
 import ExperienceOverview from '../../Components/ExperienceOverview/ExperienceOverview.jsx'
 export default function HomePage() {
@@ -32,7 +33,8 @@ export default function HomePage() {
                         <input placeholder='City Location' type="text" />
                         <input placeholder='Min Price' type="number" />
                         <input placeholder='Max Price' type="number" />
-                        <button>S</button>
+                        <button><CiSearch size={22} />
+                        </button>
                     </div>
                 </div>
                 <div>
