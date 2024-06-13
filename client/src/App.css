@@ -1,5 +1,6 @@
 .app {
     margin: 0 5%;
+    overflow: hidden;
 }
 
 @media (max-width: 901px) {

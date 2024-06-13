@@ -165,6 +165,11 @@
     .leftSide img {
         display: none;
     }
+}
 
+@media (max-width:483px) {
+    .nav {
+        margin: 10px auto;
+    }
 
 }
