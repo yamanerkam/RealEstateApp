@@ -96,10 +96,40 @@
         flex-direction: row;
     }
 
-    .down {}
+
 }
 
-@media (max-width: 480px) {}
+@media (max-width: 480px) {
+
+    .rightSide h1 {
+        font-size: 2em;
+        margin-bottom: 15px;
+    }
+
+    .rightSide p {
+        margin-bottom: 30px;
+        font-size: 1em;
+    }
+
+    .search {
+        margin-bottom: -30px;
+    }
+
+    .down2 {
+        margin-bottom: 0 !important;
+    }
+
+    .down2 button {
+        margin-bottom: 0;
+    }
+
+    .exp {
+        margin: 0 !important;
+    }
+
+
+
+}
 
 /* Additional Styles */
 .exp {
