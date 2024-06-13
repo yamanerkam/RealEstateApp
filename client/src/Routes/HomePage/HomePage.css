@@ -100,6 +100,10 @@
 }
 
 @media (max-width: 480px) {
+    .home {
+        margin: 0;
+        padding: 0;
+    }
 
     .rightSide h1 {
         font-size: 2em;
@@ -168,6 +172,7 @@
 
 .down2 {
     display: flex;
+    margin-bottom: -30px;
 }
 
 .down2 input:nth-of-type(1) {
