@@ -20,10 +20,9 @@ export default function HomePage() {
             <div className="rightSide">
                 <h1>Find Real Estate & Get Your Dream Place</h1>
 
-                <div className="paragraph">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos explicabo suscipit cum eius, iure est nulla animi consequatur facilis id pariatur fugit quos laudantium temporibus dolor ea repellat provident impedit!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos explicabo suscipit cum eius, iure est nulla animi consequatur facilis id pariatur fugit quos laudantium temporibus dolor ea repellat provident impedit!</p>
 
-                </div>
+
                 <div className="search">
                     <div className="up">
                         <button onClick={() => handleToggle('buy')} className={`buy upBtn ${toggleBlackWhite && 'activeBtn'}`}>Buy</button>
