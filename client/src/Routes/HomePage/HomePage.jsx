@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './HomePage.css'
 import { CiSearch } from "react-icons/ci";
-import BGpng from '../../assets/bg.png'
+import BGpng from '../../assets/bg2.png'
 import ExperienceOverview from '../../Components/ExperienceOverview/ExperienceOverview.jsx'
 export default function HomePage() {
     const [toggleBlackWhite, setToggleBlackWhite] = useState(true)
@@ -29,11 +29,14 @@ export default function HomePage() {
                         <button onClick={() => handleToggle('rent')} className={`rent upBtn ${!toggleBlackWhite && 'activeBtn'}`}>Rent</button>
                     </div>
                     <div className="down">
-                        <input placeholder='City Location' type="text" />
-                        <input placeholder='Min Price' type="number" />
-                        <input placeholder='Max Price' type="number" />
-                        <button><CiSearch size={22} />
-                        </button>
+                        <form className='down2' action="">
+                            <input placeholder='City Location' type="text" />
+                            <input placeholder='Min Price' type="number" />
+                            <input placeholder='Max Price' type="number" />
+                            <button><CiSearch size={32} />
+                            </button>
+                        </form>
+
                     </div>
                 </div>
                 <div>
@@ -48,7 +51,7 @@ export default function HomePage() {
             </div>
 
             <div className="leftSide">
-                <img src={BGpng} alt="" />
+                <img className='stpPic' src={BGpng} alt="" />
             </div>
         </div>
     )

@@ -1,3 +1,21 @@
 .app {
     margin: 0 5%;
 }
+
+@media (max-width: 901px) {
+    .app {
+        margin: 0 2%;
+    }
+}
+
+@media (max-width: 901px) {
+    .app {
+        margin: 0 2%;
+    }
+}
+
+@media (max-width: 480px) {
+    .app {
+        margin: 0 1%;
+    }
+}
