@@ -210,3 +210,46 @@
     padding: 10px 20px;
     border-left: none;
 }
+
+@media (max-width:750px) {
+    .down2 {
+        display: flex;
+        flex-direction: column;
+        gap: 3px
+    }
+
+
+
+    .down2 input:nth-of-type(1) {
+        border: 1px solid #000;
+        width: auto;
+        padding: 20px;
+
+
+
+    }
+
+    .down2 input:nth-of-type(2) {
+        width: auto;
+        padding: 20px;
+        border: 1px solid #000;
+
+
+    }
+
+    .down2 input:nth-of-type(3) {
+        width: auto;
+        border: 1px solid #000;
+        padding: 20px;
+
+
+    }
+
+    .down button {
+        color: white;
+        background-color: #fece51;
+        border: none;
+    }
+
+
+}
