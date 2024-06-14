@@ -125,15 +125,19 @@ export default function ListPage() {
                 </div>
 
                 <div className="items">
-                    <HouseCard
-                        img={listData[0].img}
-                        address={listData[0].address}
-                        title={listData[0].title}
-                        price={listData[0].price}
-                        bedroom={listData[0].bedroom}
-                        bathroom={listData[0].bathroom}
 
-                    />
+                    {listData && listData.map((item) => (
+                        <HouseCard
+                            img={item.img}
+                            address={item.address}
+                            title={item.title}
+                            price={item.price}
+                            bedroom={item.bedroom}
+                            bathroom={item.bathroom}
+
+                        />
+                    ))}
+
                 </div>
 
 
