@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import './ListPage.css'
 import { CiSearch } from "react-icons/ci";
+import { listData } from '../../Lib/dummydata'
+import HouseCard from '../../Components/HouseCard/HouseCard';
+
 
 export default function ListPage() {
     const [cityName, setCityName] = useState('London')
-
+    console.log(listData)
     const [formData, setFormData] = useState({
         location: "",
         type: "",
@@ -120,6 +123,20 @@ export default function ListPage() {
                         <button type='submit'><CiSearch size={32} /></button>
                     </form>
                 </div>
+
+                <div className="items">
+                    <HouseCard
+                        img={listData[0].img}
+                        address={listData[0].address}
+                        title={listData[0].title}
+                        price={listData[0].price}
+                        bedroom={listData[0].bedroom}
+                        bathroom={listData[0].bathroom}
+
+                    />
+                </div>
+
+
             </div>
             <div className='list-right'>
                 right

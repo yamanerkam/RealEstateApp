@@ -1,5 +1,93 @@
-.house-card {}
+.house-card {
+    margin: 40px 0;
+    display: flex;
+    gap: 10px;
+}
 
-.img-wrapper {}
+.img-wrapper {
+    flex: 2;
+    height: 200px;
+}
 
-.details-wrapper {}
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.details-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+
+
+
+.details-wrapper .price {
+    background-color: #FFE9B3;
+    width: fit-content;
+    font-size: 0.8em;
+    border-radius: 5px;
+    padding: 5px 8px;
+}
+
+.details-wrapper h1 {
+    font-size: 0.8em;
+}
+
+.details-wrapper .address {
+    display: flex;
+    align-items: center;
+    color: #7a7a7a;
+    font-weight: 400;
+}
+
+.loc-icon {
+    margin-left: -4px;
+    display: inline-block;
+}
+
+
+.details-wrapper .address p {
+    font-size: 14px;
+}
+
+.bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 150%;
+}
+
+.bottom-bar .features {
+    display: flex;
+    gap: 20px
+}
+
+.bottom-bar .buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.bottom-bar button {
+    display: flex;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    border: 1px solid #CCCCCC;
+    padding: 2px 3px;
+}
+
+.bottom-bar span {
+    font-size: 14px;
+    font-weight: 400;
+    background-color: #F5F5F5;
+    display: flex;
+    gap: 2px;
+    border-radius: 5px;
+    padding: 6px 10px;
+    justify-content: center;
+    align-items: center;
+}
