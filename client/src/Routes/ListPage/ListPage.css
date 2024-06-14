@@ -9,12 +9,17 @@
     font-weight: 300;
 }
 
+
 .loc {
     margin-bottom: 15px;
 }
 
 .loc input {
     width: 100% !important;
+}
+
+.form-wrapper {
+    margin-top: 10px;
 }
 
 .input-wrapper label {
@@ -39,4 +44,13 @@ select {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 25px
+}
+
+.list-left button {
+    cursor: pointer;
+    margin-top: 10px;
+    color: white;
+    border: none;
+    background-color: #fece51;
+    padding: 5px 34px;
 }
