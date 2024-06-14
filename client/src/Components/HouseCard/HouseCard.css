@@ -5,8 +5,9 @@
 }
 
 .img-wrapper {
-    flex: 2;
+    width: 300px;
     height: 200px;
+    overflow: hidden;
 }
 
 .img-wrapper img {
@@ -58,7 +59,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 150%;
+    width: fit-content;
+    gap: 170px;
 }
 
 .bottom-bar .features {
@@ -78,6 +80,7 @@
     border-radius: 5px;
     border: 1px solid #CCCCCC;
     padding: 2px 3px;
+    margin: 0;
 }
 
 .bottom-bar span {
