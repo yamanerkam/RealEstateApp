@@ -20,12 +20,11 @@ export default function HouseCard(props) {
                 <p className='price'>$ {props.price}</p>
                 <div className='bottom-bar'>
                     <div className="features">
-                        <span className="bedroom">
+                        <span className="room bedroom">
                             <IoBedOutline />
-                            <p>{props.bedroom} bedroom</p></span>
-                        <span className="bathroom">
-                            <LuBath />{props.bathroom}
-                            bathroom</span>
+                            <p> <a href="">{props.bedroom}</a><a href=""> bedroom</a></p></span>
+                        <span className="room bathroom">
+                            <LuBath /> <p> <a href="">{props.bathroom}</a><a href=""> bathroom</a></p> </span>
                     </div>
                     <div className="buttons">
                         <button><CiBookmark size={22} />

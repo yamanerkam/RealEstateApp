@@ -20,7 +20,7 @@
 .details-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 22px;
 }
 
 
@@ -68,6 +68,8 @@
     gap: 20px
 }
 
+
+
 .bottom-bar .buttons {
     display: flex;
     gap: 15px;
@@ -84,13 +86,19 @@
 }
 
 .bottom-bar span {
-    font-size: 14px;
+    font-size: 0.7em;
     font-weight: 400;
     background-color: #F5F5F5;
     display: flex;
     gap: 2px;
     border-radius: 5px;
-    padding: 6px 10px;
+    width: fit-content;
+    padding: 6px 20px;
     justify-content: center;
     align-items: center;
+}
+
+.bottom-bar span p {
+    display: flex;
+    gap: 5px;
 }
