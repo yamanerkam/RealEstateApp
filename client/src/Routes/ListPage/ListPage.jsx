@@ -3,6 +3,7 @@ import './ListPage.css'
 import { CiSearch } from "react-icons/ci";
 import { listData } from '../../Lib/dummydata'
 import HouseCard from '../../Components/HouseCard/HouseCard';
+import Map from '../../Components/Map/Map';
 
 
 export default function ListPage() {
@@ -128,6 +129,7 @@ export default function ListPage() {
 
                     {listData && listData.map((item) => (
                         <HouseCard
+                            key={item.id}
                             img={item.img}
                             address={item.address}
                             title={item.title}
@@ -143,7 +145,7 @@ export default function ListPage() {
 
             </div>
             <div className='list-right'>
-                right
+                <Map />
             </div>
         </div>
     );

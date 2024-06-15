@@ -25,7 +25,7 @@ function App() {
       element: <SinglePage />,
     },
     {
-      path: "/login-page",
+      path: "/login",
       element: <LoginPage />,
     },
   ]);

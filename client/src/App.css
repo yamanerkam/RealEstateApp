@@ -20,3 +20,8 @@
         margin: 0 1%;
     }
 }
+
+.leaflet-container {
+    width: auto !important;
+    height: 470px !important;
+}

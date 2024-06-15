@@ -1,4 +1,5 @@
 .list-page {
+    position: relative;
     margin-top: 20px;
     display: flex;
 }
