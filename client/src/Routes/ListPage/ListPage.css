@@ -12,9 +12,21 @@
     height: 500px;
     overflow-y: scroll;
     padding: 10px;
-
 }
 
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #FFD700;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #e6bc00;
+}
 
 .loc {
     margin-bottom: 15px;
@@ -64,4 +76,10 @@ select {
 .list-right {
     flex: 1.5;
     height: 100%;
+}
+
+@media (max-width:1025px) {
+    .list-right {
+        display: none;
+    }
 }

@@ -1,5 +1,6 @@
 .app {
-    margin: 0 5%;
+    margin: auto;
+    margin-right: 1%;
     overflow: hidden !important;
 }
 

@@ -3,6 +3,6 @@ import Map from '../../Components/Map/Map'
 
 export default function LoginPage() {
     return (
-        <div><Map /></div>
+        <div></div>
     )
 }

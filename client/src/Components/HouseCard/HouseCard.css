@@ -1,13 +1,12 @@
 .house-card {
     margin: 40px 0;
     display: flex;
-    gap: 10px;
+    gap: 20px;
 }
 
 .img-wrapper {
-    width: 300px;
+    flex: 2;
     height: 200px;
-    overflow: hidden;
 }
 
 .img-wrapper img {
@@ -19,8 +18,10 @@
 
 .details-wrapper {
     display: flex;
+    flex: 3;
     flex-direction: column;
-    gap: 22px;
+    justify-content: space-between;
+    gap: 10px;
 }
 
 
@@ -59,13 +60,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: fit-content;
-    gap: 170px;
 }
 
 .bottom-bar .features {
     display: flex;
-    gap: 20px
+    gap: 10px;
 }
 
 
@@ -93,7 +92,7 @@
     gap: 2px;
     border-radius: 5px;
     width: fit-content;
-    padding: 6px 20px;
+    padding: 6px 10px;
     justify-content: center;
     align-items: center;
 }
@@ -101,4 +100,10 @@
 .bottom-bar span p {
     display: flex;
     gap: 5px;
+}
+
+@media (max-width:1025px) {
+    .img-wrapper {
+        display: none;
+    }
 }
