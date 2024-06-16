@@ -3,8 +3,8 @@ import './SinglePage.css'
 export default function SinglePage() {
     return (
         <div className='single-page'>
-            <div className='sp-left'>left</div>
-            <div className="sp-right">right</div>
+            <div className='sp-details'>left</div>
+            <div className="sp-features">right</div>
         </div>
     )
 }

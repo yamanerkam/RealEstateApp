@@ -6,10 +6,10 @@
     padding: 0 10px;
 }
 
-.sp-left {
+.sp-details {
     flex: 3;
 }
 
-.sp-right {
+.sp-features {
     flex: 2;
 }
