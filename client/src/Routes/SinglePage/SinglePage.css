@@ -4,12 +4,18 @@
     gap: 20px;
     margin: 0;
     padding: 0 10px;
+
+}
+
+.spd-wrapper {
+    flex: 2.5;
+    height: 80vh;
+    overflow-y: scroll;
 }
 
 .sp-details {
-    height: 80vh;
-    overflow-y: scroll;
-    flex: 2.5;
+    margin-right: 40px;
+
 }
 
 .sp-features {
