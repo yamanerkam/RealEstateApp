@@ -17,10 +17,14 @@ export default function SinglePage() {
                         <p className='price'>$ {singlePostData.price}</p>
                     </div>
 
-                    <div className='wrp'>
+                    <div className='mf-right'>
                         <img src={catPP} alt="" />
                         <p className="userName">Erkam Yaman</p>
                     </div>
+                </div>
+
+                <div className='sp-d-bottom'>
+                    <p>{singlePostData.description}</p>
                 </div>
 
             </div>
