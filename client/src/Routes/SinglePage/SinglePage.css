@@ -13,3 +13,56 @@
 .sp-features {
     flex: 2;
 }
+
+.mid-floor {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mf-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mid-floor .price {
+    background-color: #FFE9B3;
+    width: fit-content;
+    font-size: 1.2em;
+    border-radius: 5px;
+    padding: 5px 8px;
+}
+
+.mid-floor h1 {
+    font-size: 2em;
+    transition: all ease 0.5s;
+    cursor: pointer;
+
+}
+
+.mid-floor .address {
+    display: flex;
+    align-items: center;
+    color: #7a7a7a;
+    font-weight: 400;
+}
+
+
+
+.wrp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 0px 50px;
+    border-radius: 10px;
+    background-color: rgba(254, 205, 81, 0.209);
+}
+
+.wrp img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
