@@ -37,6 +37,14 @@
 
 .details-wrapper h1 {
     font-size: 0.8em;
+    transition: all ease 0.5s;
+    cursor: pointer;
+
+}
+
+.details-wrapper h1:hover {
+    transform: scale(1.03);
+
 }
 
 .details-wrapper .address {

@@ -131,14 +131,7 @@ export default function ListPage() {
 
                         {listData && listData.map((item) => (
                             <HouseCard
-                                key={item.id}
-                                img={item.img}
-                                address={item.address}
-                                title={item.title}
-                                price={item.price}
-                                bedroom={item.bedroom}
-                                bathroom={item.bathroom}
-
+                                item={item}
                             />
                         ))}
 

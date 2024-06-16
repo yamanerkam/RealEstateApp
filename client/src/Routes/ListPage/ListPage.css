@@ -7,9 +7,11 @@
 .list-left {
     flex: 3;
     height: 80vh;
+    overflow-x: hidden;
 }
 
 .list-left-wrapper {
+    overflow-x: hidden;
     font-size: 1.5em;
     font-weight: 300;
     overflow-y: scroll;
