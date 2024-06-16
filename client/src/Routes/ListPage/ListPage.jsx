@@ -120,9 +120,10 @@ export default function ListPage() {
                                         type="number"
                                     />
                                 </div>
+                                <button type='submit'><CiSearch size={32} /></button>
+
                             </div>
 
-                            <button type='submit'><CiSearch size={32} /></button>
                         </form>
                     </div>
 

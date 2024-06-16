@@ -1,6 +1,5 @@
 .app {
-    margin: auto;
-    margin-right: 1%;
+    margin: auto 3%;
     overflow: hidden !important;
 }
 
@@ -10,11 +9,7 @@
     }
 }
 
-@media (max-width: 901px) {
-    .app {
-        margin: 0 2%;
-    }
-}
+
 
 @media (max-width: 480px) {
     .app {

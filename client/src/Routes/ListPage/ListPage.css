@@ -1,6 +1,6 @@
 .list-page {
     height: 100%;
-    margin-top: 20px;
+    margin-top: 0px;
     display: flex;
 }
 
@@ -66,7 +66,8 @@ select {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 25px
+    gap: 20px;
+
 }
 
 .list-left button {
@@ -79,7 +80,7 @@ select {
 }
 
 .list-right {
-    flex: 1.5;
+    flex: 2;
     height: 100%;
 }
 
