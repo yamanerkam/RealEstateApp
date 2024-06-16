@@ -8,7 +8,13 @@ export default function SinglePage() {
     return (
         <div className='single-page'>
             <div className='sp-details'>
-                <div className='images'></div>
+                <div className='images'>
+                    <div className='img-left'>
+                        <img className='bigIMG' src={singlePostData.images[0]} alt="" />
+                    </div>
+                    <div className='img-right'>                        <img className='smallIMG' src={singlePostData.images[1]} alt="" />                        <img className='smallIMG' src={singlePostData.images[2]} alt="" />                        <img className='smallIMG' src={singlePostData.images[3]} alt="" />
+                    </div>
+                </div>
                 <div className='mid-floor'>
                     <div className='mf-left'>
                         <h1>{singlePostData.title}</h1>
