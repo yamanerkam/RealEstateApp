@@ -236,4 +236,12 @@
         flex: none;
         height: max-content;
     }
+
+    .mid-floor {
+        flex-direction: column;
+    }
+
+    .mf-right {
+        padding: 15px 30px;
+    }
 }
