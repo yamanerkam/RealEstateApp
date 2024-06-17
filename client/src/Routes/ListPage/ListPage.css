@@ -84,7 +84,6 @@ select {
 
 .list-right {
     flex: 2;
-    height: 100%;
 }
 
 @media (max-width:1025px) {

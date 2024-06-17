@@ -16,6 +16,7 @@ import { VscTools } from "react-icons/vsc";
 
 
 import catPP from '../../../src/assets/cat.webp'
+import Map from '../../Components/Map/Map.jsx';
 
 export default function SinglePage() {
     return (
@@ -116,6 +117,7 @@ export default function SinglePage() {
                     </div>
                     <p className="title">Location</p>
                     <div className="mapContainer">
+                        <Map />
                     </div>
                     <div className="buttons">
                         <button>
