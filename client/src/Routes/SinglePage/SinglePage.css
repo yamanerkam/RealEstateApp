@@ -196,7 +196,7 @@
     background-color: white;
 }
 
-.buttons {
+.buttons-sp {
     display: flex;
     justify-content: space-between;
 
@@ -208,7 +208,7 @@
     margin-bottom: 20px;
 }
 
-.buttons button {
+.buttons-sp button {
 
     padding: 20px;
     display: flex;

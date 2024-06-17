@@ -119,7 +119,7 @@ export default function SinglePage() {
                     <div className="mapContainer">
                         <Map />
                     </div>
-                    <div className="buttons">
+                    <div className="buttons-sp">
                         <button>
                             <CiChat1 size={22} />
                             Send a Message
