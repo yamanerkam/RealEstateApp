@@ -1,10 +1,10 @@
 .single-page {
+    height: 80vh;
     display: flex;
     flex-direction: row;
     gap: 20px;
     margin: 0;
     padding: 0 10px;
-
 }
 
 .spd-wrapper {
@@ -55,7 +55,6 @@
     color: #7a7a7a;
     font-weight: 400;
 }
-
 
 
 .mf-right {
@@ -216,4 +215,25 @@
     background-color: white;
     border-radius: 10px;
     border: 1px solid #FECE51;
+}
+
+
+
+@media (max-width: 1025px) {
+    .single-page {
+        overflow-y: scroll;
+        flex-direction: column;
+    }
+
+    .spd-wrapper {
+        overflow-y: hidden;
+        flex: none;
+        height: max-content;
+    }
+
+    .sp-features {
+        overflow-y: hidden;
+        flex: none;
+        height: max-content;
+    }
 }

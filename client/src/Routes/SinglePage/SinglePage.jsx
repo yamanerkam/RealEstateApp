@@ -21,6 +21,7 @@ import Map from '../../Components/Map/Map.jsx';
 export default function SinglePage() {
     return (
         <div className='single-page'>
+
             <div className='spd-wrapper'>
                 <div className='sp-details'>
                     <div className='images'>
@@ -131,7 +132,8 @@ export default function SinglePage() {
                     </div>
                 </div>
             </div >
-        </div >
+        </div>
+
 
     )
 }
