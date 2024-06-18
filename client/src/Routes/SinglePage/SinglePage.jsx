@@ -13,10 +13,15 @@ import { IoRestaurantOutline } from "react-icons/io5";
 import { CiChat1 } from "react-icons/ci";
 import { CiBookmark } from "react-icons/ci";
 import { VscTools } from "react-icons/vsc";
+import { IoClose } from "react-icons/io5";
 
 
 import catPP from '../../../src/assets/cat.webp'
 import Map from '../../Components/Map/Map.jsx';
+
+import { FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft } from "react-icons/fa";
+
 
 
 export default function SinglePage() {
@@ -33,7 +38,12 @@ export default function SinglePage() {
                 <div className='sp-details'>
                     <div className='images'>
                         <div className={`slider ${toggle ? 'slider-on' : 'slider-off'}`}>
-                            efr
+                            <p onClick={sliderOn}> <IoClose size={64} /></p>
+                            <FaChevronLeft className='sld-btn' size={64} />
+                            <div className='sld-images'>xxxx</div>
+                            <FaChevronRight className='sld-btn' size={64} />
+
+
                         </div>
 
                         <div className='img-left'>
