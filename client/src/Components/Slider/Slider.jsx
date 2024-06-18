@@ -1,7 +1,8 @@
-import React from 'react'
-import './Slider.css'
-export default function Slider() {
+import React, { useState } from 'react'
+export default function Slider({ images }) {
     return (
-        <div>Slider</div>
+        <div className='slider'>
+            efr
+        </div>
     )
 }

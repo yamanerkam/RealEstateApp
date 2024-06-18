@@ -217,7 +217,25 @@
     border: 1px solid #FECE51;
 }
 
+.slider {
+    width: 100px;
+    height: 100px;
+}
 
+.slider-on {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    background-color: black;
+
+}
+
+.slider-off {
+    display: none;
+    background-color: red;
+
+}
 
 @media (max-width: 1025px) {
     .single-page {

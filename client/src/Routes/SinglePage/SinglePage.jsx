@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './SinglePage.css'
 import { singlePostData } from '../../Lib/dummydata.js'
 import { IoLocationOutline } from "react-icons/io5";
@@ -18,17 +18,31 @@ import { VscTools } from "react-icons/vsc";
 import catPP from '../../../src/assets/cat.webp'
 import Map from '../../Components/Map/Map.jsx';
 
+
 export default function SinglePage() {
+    const [toggle, setToggle] = useState(false)
+
+    const sliderOn = () => {
+        setToggle(!toggle)
+    }
+
     return (
         <div className='single-page'>
 
             <div className='spd-wrapper'>
                 <div className='sp-details'>
                     <div className='images'>
-                        <div className='img-left'>
-                            <img className='bigIMG' src={singlePostData.images[0]} alt="" />
+                        <div className={`slider ${toggle ? 'slider-on' : 'slider-off'}`}>
+                            efr
                         </div>
-                        <div className='img-right'>                        <img className='smallIMG' src={singlePostData.images[1]} alt="" />                        <img className='smallIMG' src={singlePostData.images[2]} alt="" />                        <img className='smallIMG' src={singlePostData.images[3]} alt="" />
+
+                        <div className='img-left'>
+                            <img className='bigIMG' onClick={sliderOn} src={singlePostData.images[0]} alt="" />
+                        </div>
+                        <div className='img-right'>
+                            <img className='smallIMG' src={singlePostData.images[1]} alt="" />
+                            <img className='smallIMG' src={singlePostData.images[2]} alt="" />
+                            <img className='smallIMG' src={singlePostData.images[3]} alt="" />
                         </div>
                     </div>
                     <div className='mid-floor'>
