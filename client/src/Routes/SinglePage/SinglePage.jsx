@@ -27,19 +27,26 @@ import { FaChevronLeft } from "react-icons/fa";
 export default function SinglePage() {
     const [toggle, setToggle] = useState(false)
     const [images, setImages] = useState([(singlePostData.images)])
-    const [clickedPic, setClickedPic] = useState('')
+    console.log(images[0][0])
+    const [indexOfImg, setIndexOfImg] = useState(0)
 
-    const sliderOn = (img, index) => {
-        setClickedPic(img)
-        console.log(img, index)
+    const sliderOn = (index) => {
         setToggle(!toggle)
+        console.log(index)
+        console.log(indexOfImg)
+        setIndexOfImg(index)
+
     }
 
-    const changeImages = (way) => {
-        if (way === 'left') {
-            console.log(way)
-        } else if (way === 'right') {
-            console.log(way)
+    const changeImages = (direction) => {
+        if (direction === 'left') {
+            console.log(direction)
+            setIndexOfImg(indexOfImg - 1)
+
+        } else if (direction === 'right') {
+            setIndexOfImg(indexOfImg + 1)
+
+            console.log(direction)
         }
 
     }
@@ -53,19 +60,19 @@ export default function SinglePage() {
                         <div className={`slider ${toggle ? 'slider-on' : 'slider-off'}`}>
                             <p onClick={sliderOn}> <IoClose size={64} /></p>
                             <FaChevronLeft className='sld-btn' onClick={(() => changeImages('left'))} size={64} />
-                            <div className='sld-images'><img src={clickedPic} alt="" /></div>
+                            <div className='sld-images'><img src={images[0][indexOfImg]} alt="" /></div>
                             <FaChevronRight className='sld-btn' onClick={(() => changeImages('right'))} size={64} />
 
 
                         </div>
 
                         <div className='img-left'>
-                            <img className='bigIMG' onClick={(() => sliderOn(singlePostData.images[0], 0))} src={singlePostData.images[0]} alt="" />
+                            <img className='bigIMG' onClick={(() => sliderOn(0))} src={singlePostData.images[0]} alt="" />
                         </div>
                         <div className='img-right'>
-                            <img className='smallIMG' onClick={(() => sliderOn(singlePostData.images[1], 1))} src={singlePostData.images[1]} alt="" />
-                            <img className='smallIMG' onClick={(() => sliderOn(singlePostData.images[2], 2))} src={singlePostData.images[2]} alt="" />
-                            <img className='smallIMG' onClick={(() => sliderOn(singlePostData.images[3], 3))} src={singlePostData.images[3]} alt="" />
+                            <img className='smallIMG' onClick={(() => sliderOn(1))} src={singlePostData.images[1]} alt="" />
+                            <img className='smallIMG' onClick={(() => sliderOn(2))} src={singlePostData.images[2]} alt="" />
+                            <img className='smallIMG' onClick={(() => sliderOn(3))} src={singlePostData.images[3]} alt="" />
                         </div>
                     </div>
                     <div className='mid-floor'>
