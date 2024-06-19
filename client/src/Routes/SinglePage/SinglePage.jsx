@@ -65,11 +65,13 @@ export default function SinglePage() {
                 <div className='sp-details'>
                     <div className='images'>
                         <div className={`slider ${toggle ? 'slider-on' : 'slider-off'}`}>
-                            <p onClick={sliderOn}> <IoClose size={64} /></p>
-                            <FaChevronLeft className='sld-btn' onClick={(() => changeImages('left'))} size={64} />
-                            <div className='sld-images'><img src={images[0][indexOfImg]} alt="" /></div>
-                            <FaChevronRight className='sld-btn' onClick={(() => changeImages('right'))} size={64} />
+                            <div className='slider-wrapper'>
+                                <p onClick={sliderOn}> <IoClose size={64} /></p>
+                                <FaChevronLeft className='sld-btn' onClick={(() => changeImages('left'))} size={64} />
+                                <div className='sld-images'><img src={images[0][indexOfImg]} alt="" /></div>
+                                <FaChevronRight className='sld-btn' onClick={(() => changeImages('right'))} size={64} />
 
+                            </div>
 
                         </div>
 
