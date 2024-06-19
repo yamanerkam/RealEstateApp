@@ -230,8 +230,14 @@
 
 .sld-images {
     height: 90%;
-    border: 10px solid white;
     flex: 10;
+}
+
+.sld-images img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
 }
 
 .sld-btn {

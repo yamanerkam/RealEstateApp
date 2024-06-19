@@ -26,9 +26,18 @@ import { FaChevronLeft } from "react-icons/fa";
 
 export default function SinglePage() {
     const [toggle, setToggle] = useState(false)
+    const [images, setImages] = useState([(singlePostData.images)])
+    const [clickedPic, setClickedPic] = useState('')
 
-    const sliderOn = () => {
+    const sliderOn = (img) => {
+        setClickedPic(img)
+        console.log(img)
+        console.log(images)
         setToggle(!toggle)
+    }
+
+    const changeImages = () => {
+
     }
 
     return (
@@ -40,19 +49,19 @@ export default function SinglePage() {
                         <div className={`slider ${toggle ? 'slider-on' : 'slider-off'}`}>
                             <p onClick={sliderOn}> <IoClose size={64} /></p>
                             <FaChevronLeft className='sld-btn' size={64} />
-                            <div className='sld-images'>xxxx</div>
+                            <div className='sld-images'><img src={clickedPic} alt="" /></div>
                             <FaChevronRight className='sld-btn' size={64} />
 
 
                         </div>
 
                         <div className='img-left'>
-                            <img className='bigIMG' onClick={sliderOn} src={singlePostData.images[0]} alt="" />
+                            <img className='bigIMG' onClick={((e) => sliderOn(singlePostData.images[0]))} src={singlePostData.images[0]} alt="" />
                         </div>
                         <div className='img-right'>
-                            <img className='smallIMG' src={singlePostData.images[1]} alt="" />
-                            <img className='smallIMG' src={singlePostData.images[2]} alt="" />
-                            <img className='smallIMG' src={singlePostData.images[3]} alt="" />
+                            <img className='smallIMG' onClick={(() => sliderOn(singlePostData.images[1]))} src={singlePostData.images[1]} alt="" />
+                            <img className='smallIMG' onClick={(() => sliderOn(singlePostData.images[2]))} src={singlePostData.images[2]} alt="" />
+                            <img className='smallIMG' onClick={(() => sliderOn(singlePostData.images[3]))} src={singlePostData.images[3]} alt="" />
                         </div>
                     </div>
                     <div className='mid-floor'>
