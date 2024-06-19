@@ -27,8 +27,7 @@ import { FaChevronLeft } from "react-icons/fa";
 export default function SinglePage() {
     const [toggle, setToggle] = useState(false)
     const [images, setImages] = useState([(singlePostData.images)])
-    console.log(images[0][0])
-    const [indexOfImg, setIndexOfImg] = useState(0)
+    const [indexOfImg, setIndexOfImg] = useState(null)
 
     const sliderOn = (index) => {
         setToggle(!toggle)
