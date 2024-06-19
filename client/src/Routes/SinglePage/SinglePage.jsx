@@ -40,9 +40,17 @@ export default function SinglePage() {
     const changeImages = (direction) => {
         if (direction === 'left') {
             console.log(direction)
+            if (indexOfImg == 0) {
+                setIndexOfImg(3)
+                return
+            }
             setIndexOfImg(indexOfImg - 1)
 
         } else if (direction === 'right') {
+            if (indexOfImg == 3) {
+                setIndexOfImg(0)
+                return
+            }
             setIndexOfImg(indexOfImg + 1)
 
             console.log(direction)
