@@ -36,11 +36,11 @@
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
-    height: 30vh;
+    height: 40vh;
 
 }
 
-.input-ch {}
+
 
 .me {
     display: flex;

@@ -42,13 +42,18 @@
 }
 
 .messages {
-    height: 80vh;
     overflow-y: scroll;
 }
 
 .messages-wrapper {
     padding: 0 10px 30px;
     background-color: #FCF5F3;
+}
+
+.msg-wrap {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
 }
 
 .messages-wrapper h1 {
@@ -61,6 +66,7 @@
     flex-direction: column;
     gap: 20px;
 }
+
 
 @media (max-width: 1025px) {
     .profile-page {
@@ -80,6 +86,4 @@
         flex: none;
         height: max-content;
     }
-
-
 }
