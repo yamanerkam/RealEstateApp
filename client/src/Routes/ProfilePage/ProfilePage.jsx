@@ -58,6 +58,7 @@ export default function ProfilePage() {
                 <div className="messages-wrapper">
                     <h1>Messages</h1>
                     <div className="all-chats">
+
                         <MessageChat lastMessage={'hello how are you? did you recieve the message that i sent you'.substring(0, 25) + '...'} userName='Erkam Yaman' img={catPP} />
                         <MessageChat lastMessage={'hello how are you? did you recieve the message that i sent you'.substring(0, 25) + '...'} userName='Erkam Yaman' img={catPP} />
                         <MessageChat lastMessage={'hello how are you? did you recieve the message that i sent you'.substring(0, 25) + '...'} userName='Erkam Yaman' img={catPP} />
