@@ -5,6 +5,7 @@ import { listData } from '../../Lib/dummydata'
 import UserInformation from '../../Components/UserInformation/UserInformation'
 import HouseCard from '../../Components/HouseCard/HouseCard'
 import MessageChat from '../../Components/MessageChat/MessageChat'
+import ChatWindow from '../../Components/ChatWindow/ChatWindow'
 export default function ProfilePage() {
     return (
         <div className='profile-page'>
@@ -58,7 +59,6 @@ export default function ProfilePage() {
                 <div className="messages-wrapper">
                     <h1>Messages</h1>
                     <div className="all-chats">
-
                         <MessageChat lastMessage={'hello how are you? did you recieve the message that i sent you'.substring(0, 25) + '...'} userName='Erkam Yaman' img={catPP} />
                         <MessageChat lastMessage={'hello how are you? did you recieve the message that i sent you'.substring(0, 25) + '...'} userName='Erkam Yaman' img={catPP} />
                         <MessageChat lastMessage={'hello how are you? did you recieve the message that i sent you'.substring(0, 25) + '...'} userName='Erkam Yaman' img={catPP} />
@@ -70,7 +70,7 @@ export default function ProfilePage() {
                         <MessageChat lastMessage={'hello how are you? did you recieve the message that i sent you'.substring(0, 25) + '...'} userName='Erkam Yaman' img={catPP} />
                         <MessageChat lastMessage={'hello how are you? did you recieve the message that i sent you'.substring(0, 25) + '...'} userName='Erkam Yaman' img={catPP} />
                     </div>
-
+                    <ChatWindow img={catPP} username={'Erkam Yaman'} />
 
                 </div>
             </div>
