@@ -1,7 +1,64 @@
 import React from 'react'
 import './ProfilePage.css'
+import catPP from '../../../src/assets/cat.webp'
+import { listData } from '../../Lib/dummydata'
+import UserInformation from '../../Components/UserInformation/UserInformation'
+import HouseCard from '../../Components/HouseCard/HouseCard'
 export default function ProfilePage() {
     return (
-        <div className='profile-page'>ProfilePage</div>
+        <div className='profile-page'>
+            <div className='user-info'>
+                <div className="user-info-wrapper">
+                    <UserInformation email='kam@gmail.com' username='kam35' img={catPP} />
+                    <div className="my-list">
+                        <div className="top-list">
+                            <div className="ui-top">
+                                <h1>My List
+                                </h1>
+                                <button className='ui-top-btn'>Create a New Post</button>
+
+                            </div>
+                        </div>
+
+                        <div className="items-pp">
+
+                            {listData && listData.map((item) => (
+                                <HouseCard
+                                    item={item}
+                                />
+                            ))}
+
+                        </div>
+                    </div>
+
+                    <div className="my-list">
+                        <div className="top-list">
+                            <div className="ui-top">
+                                <h1>Saved List
+                                </h1>
+
+                            </div>
+                        </div>
+
+                        <div className="items-pp">
+
+                            {listData && listData.map((item) => (
+                                <HouseCard
+                                    item={item}
+                                />
+                            ))}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="messages">
+                <div className="messages-wrapper">
+                    <h1>Messages</h1>
+
+                </div>
+            </div>
+        </div>
     )
 }

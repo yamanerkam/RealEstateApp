@@ -23,9 +23,9 @@ export default function HouseCard({ item }) {
                     <div className="features">
                         <span className="room bedroom">
                             <IoBedOutline />
-                            <p> <a href="">{item.bedroom}</a><a href="">bedroom</a></p></span>
+                            <p> <a >{item.bedroom}</a><a>bedroom</a></p></span>
                         <span className="room bathroom">
-                            <LuBath /> <p> <a href="">{item.bathroom}</a><a href=""> bathroom</a></p> </span>
+                            <LuBath /> <p> <a >{item.bathroom}</a><a > bathroom</a></p> </span>
                     </div>
                     <div className="buttons">
                         <button><CiBookmark size={22} />

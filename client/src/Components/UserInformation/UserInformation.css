@@ -1,0 +1,49 @@
+.ui-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5%;
+}
+
+.ui-top h1 {
+    font-weight: 300;
+}
+
+.ui-top-btn {
+    background-color: #fece51;
+    border: none;
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.ui-top-btn:hover {
+
+    background-color: #e0b844;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.user-info-ui {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.user-info span {
+    display: flex;
+    gap: 20px;
+}
+
+.user-img {
+    display: flex;
+    align-items: center;
+}
+
+.user-info-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}

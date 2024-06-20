@@ -1,4 +1,57 @@
 .profile-page {
     margin: 0;
     padding: 0 10px;
+    display: flex;
+}
+
+.user-info {
+    flex: 3;
+}
+
+.messages {
+    flex: 2;
+}
+
+.my-list {
+    margin-top: 6%;
+}
+
+.user-info {
+    height: 80vh;
+    overflow-y: scroll;
+}
+
+.user-info-wrapper {
+    margin-right: 20px;
+}
+
+.items-pp h1 {
+    font-size: 1.3em;
+}
+
+.items-pp span {
+    font-size: 1em;
+}
+
+.items-pp .price {
+    font-size: 1em;
+}
+
+.items-pp .loc-icon {
+    margin-right: -20px;
+}
+
+.messages {
+    height: 80vh;
+    overflow-y: scroll;
+}
+
+.messages-wrapper {
+    padding: 0 10px;
+    background-color: #FCF5F3;
+}
+
+.messages-wrapper h1 {
+    font-weight: 300;
+    margin-bottom: 5%;
 }
