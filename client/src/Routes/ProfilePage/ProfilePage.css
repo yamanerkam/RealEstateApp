@@ -55,3 +55,9 @@
     font-weight: 300;
     margin-bottom: 5%;
 }
+
+.all-chats {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
