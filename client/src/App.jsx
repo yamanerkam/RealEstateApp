@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider, Route, Link, } from "react-router-
 import ListPage from './Routes/ListPage/ListPage';
 import SinglePage from './Routes/SinglePage/SinglePage';
 import LoginPage from './Routes/LoginPage/LoginPage';
+import ProfilePage from './Routes/ProfilePage/ProfilePage';
 
 
 function App() {
@@ -27,6 +28,10 @@ function App() {
     {
       path: "/login",
       element: <LoginPage />,
+    },
+    {
+      path: "/profile",
+      element: <ProfilePage />,
     },
   ]);
   return (
