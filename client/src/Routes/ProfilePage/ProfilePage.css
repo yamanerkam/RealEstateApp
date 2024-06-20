@@ -42,7 +42,8 @@
 }
 
 .messages {
-    overflow-y: scroll;
+    height: 50vh !important;
+    overflow-y: scroll !important;
 }
 
 .messages-wrapper {

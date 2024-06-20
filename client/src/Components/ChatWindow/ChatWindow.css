@@ -40,6 +40,18 @@
 
 }
 
+@media (max-width:1025px) {
+    .body-ch {
+
+        height: 60vh;
+
+    }
+
+
+
+
+}
+
 
 
 .me {
