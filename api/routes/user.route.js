@@ -11,7 +11,9 @@ router.get('/user', (req, res) => {
 })
 
 router.get('/user/:id', (req, res) => {
-    res.send(':id')
+    const userId = req.params.id;
+
+    res.send(`user id is ${userId}`)
 })
 
 export default router
