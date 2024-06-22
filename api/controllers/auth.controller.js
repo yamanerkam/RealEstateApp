@@ -11,8 +11,17 @@ export const register = async (req, res) => {
                 password: hashedPassword,
             }
         })
+        const newCAT = await prisma.cat.create({
+            data: {
+                username,
+                email,
+                password: hashedPassword,
+            }
+        })
+
+
         res.status(201).json({ message: 'user created succesfully' })
-        console.log(newUser)
+        console.log(newCAT)
     } catch (error) {
         console.log(error)
         res.status(501)
