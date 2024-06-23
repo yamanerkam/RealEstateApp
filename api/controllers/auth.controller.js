@@ -1,5 +1,8 @@
 import bcrypt from 'bcrypt'
 import prisma from '../lib/prisma.js'
+import jwt from 'jsonwebtoken'
+import dotenv from 'dotenv'
+dotenv.config()
 export const register = async (req, res) => {
     const { username, email, password } = req.body
     const hashedPassword = await bcrypt.hash(password, 10)
@@ -11,17 +14,8 @@ export const register = async (req, res) => {
                 password: hashedPassword,
             }
         })
-        const newCAT = await prisma.cat.create({
-            data: {
-                username,
-                email,
-                password: hashedPassword,
-            }
-        })
-
 
         res.status(201).json({ message: 'user created succesfully' })
-        console.log(newCAT)
     } catch (error) {
         console.log(error)
         res.status(501)
@@ -43,7 +37,18 @@ export const login = async (req, res) => {
 
         if (!isPasswordCorrect) res.status(401).json({ message: 'wrong password!' })
 
-        res.setHeader("Set-Cookie", "test=" + "biscuit").json({ message: 'success' })
+        const age = 1000 * 60 * 60 * 24 * 7;
+
+        const token = jwt.sign({
+            id: user.id
+        }, process.env.JWT_SECRET_KEY, { expiresIn: age })
+
+        res
+            .cookie("token", token, {
+                httpOnly: true,
+                maxAge: age,
+            })
+            .status(200).json({ token })
 
     } catch (error) {
         console.log(error)
