@@ -9,7 +9,6 @@ export default function LoginPage() {
     })
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(formData)
 
         try {
             const res = await axios.post('http://localhost:3001/api/auth/login', {
