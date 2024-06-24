@@ -1,18 +1,18 @@
-.login-page {
+.register-page {
     height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.login-page form {
+.register-page form {
     display: flex;
     flex-direction: column;
     padding: 2rem;
 }
 
-.login-page form input[type="text"],
-.login-page form input[type="password"] {
+.register-page form input[type="text"],
+.register-page form input[type="password"] {
     margin-bottom: 1rem;
     padding: 0.75rem;
     border: 1px solid #ccc;
@@ -21,7 +21,7 @@
     /* Font size */
 }
 
-.login-page form button {
+.register-page form button {
     padding: 0.75rem;
     border: none;
     border-radius: 5px;
@@ -33,7 +33,7 @@
     transition: background-color 0.3s ease;
 }
 
-.login-page form button:hover {
+.register-page form button:hover {
     background-color: #E0B844;
 
 }

@@ -58,5 +58,5 @@ export const login = async (req, res) => {
 }
 
 export const logout = (req, res) => {
-    res.send('logout contoller')
+    res.clearCookie("token").status(200).json({ message: 'logout is succesful' })
 }
