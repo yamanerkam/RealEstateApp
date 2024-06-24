@@ -23,7 +23,7 @@ export default function Register() {
                 email: formData.email,
                 password: formData.password
 
-            })
+            }, { withCredentials: true })
             console.log(res)
             navigate("/login");
         }
