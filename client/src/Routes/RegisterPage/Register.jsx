@@ -25,7 +25,7 @@ export default function Register() {
 
             })
             console.log(res)
-            navigate("/");
+            navigate("/login");
         }
         catch (error) {
             console.error('There was an error registering!', error);
