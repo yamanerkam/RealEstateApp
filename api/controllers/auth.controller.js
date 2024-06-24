@@ -5,7 +5,11 @@ import dotenv from 'dotenv'
 dotenv.config()
 export const register = async (req, res) => {
     const { username, email, password } = req.body
+    console.log("Request Body:", req.body);
+    console.log("Password:", password);
+
     const hashedPassword = await bcrypt.hash(password, 10)
+    console.log(hashedPassword)
     try {
         const newUser = await prisma.user.create({
             data: {

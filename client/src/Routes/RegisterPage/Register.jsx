@@ -1,23 +1,37 @@
 import React, { useState } from 'react'
 import './Register.css'
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export default function Register() {
     const navigate = useNavigate();
+
+
 
     const [formData, setFormData] = useState({
         email: '',
         username: '',
         password: ''
     })
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         console.log(formData)
-        setFormData({
-            email: '',
-            username: '',
-            password: ''
-        })
+
+        try {
+            const res = await axios.post('http://localhost:3001/api/auth/register', {
+                username: formData.username,
+                email: formData.email,
+                password: formData.password
+
+            })
+            console.log(res)
+            navigate("/");
+        }
+        catch (error) {
+            console.error('There was an error registering!', error);
+        }
+
+
 
     }
     const handleChange = (e) => {
