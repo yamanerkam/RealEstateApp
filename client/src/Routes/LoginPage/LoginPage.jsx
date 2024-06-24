@@ -21,7 +21,7 @@ export default function LoginPage() {
             }, { withCredentials: true })
 
             localStorage.setItem('user', JSON.stringify(res.data))
-            navigate('/')
+            navigate('/profile')
         } catch (error) {
             console.error('There was an error registering!', error);
 
