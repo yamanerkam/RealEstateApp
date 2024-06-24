@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 import './LoginPage.css'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function LoginPage() {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         username: '',
         password: ''
@@ -14,8 +18,10 @@ export default function LoginPage() {
             const res = await axios.post('http://localhost:3001/api/auth/login', {
                 username: formData.username,
                 password: formData.password
-            })
-            console.log(res)
+            }, { withCredentials: true })
+
+            localStorage.setItem('user', JSON.stringify(res.data))
+            navigate('/')
         } catch (error) {
             console.error('There was an error registering!', error);
 
