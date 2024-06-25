@@ -2,7 +2,6 @@ import bcrypt from 'bcrypt'
 import prisma from '../lib/prisma.js'
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
-import { userInfo } from 'os'
 dotenv.config()
 export const register = async (req, res) => {
     const { username, email, password } = req.body
@@ -12,6 +11,19 @@ export const register = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10)
     console.log(hashedPassword)
     try {
+        const userDBusername = await prisma.user.findUnique({
+            where: { username }
+        })
+        const userDBemail = await prisma.user.findUnique({
+            where: { email }
+        })
+        if (userDBusername.username === username) {
+            return res.status(401).json({ message: 'username is taken!' })
+        }
+
+        if (userDBemail.email === email) {
+            return res.status(401).json({ message: 'email is taken!' })
+        }
         const newUser = await prisma.user.create({
             data: {
                 username,
@@ -19,6 +31,10 @@ export const register = async (req, res) => {
                 password: hashedPassword,
             }
         })
+
+
+
+        if (!user) return res.status(401).json({ message: 'user not found!' })
 
         res.status(201).json({ message: 'user created succesfully' })
     } catch (error) {

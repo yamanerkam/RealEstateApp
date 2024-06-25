@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function LoginPage() {
     const navigate = useNavigate();
-    const [error, setError] = useState(false)
+    const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
 
     const [formData, setFormData] = useState({
@@ -25,11 +25,12 @@ export default function LoginPage() {
             localStorage.setItem('user', JSON.stringify(res.data))
             navigate('/profile')
         } catch (error) {
+            setError(error.response.data.message);
             console.error('There was an error registering!', error);
+
 
         } finally {
             setLoading(false)
-
         }
 
     }
@@ -46,6 +47,7 @@ export default function LoginPage() {
                 <input required name='username' onChange={handleChange} value={formData.username} placeholder='Username' type="text" />
                 <input required name='password' onChange={handleChange} value={formData.password} placeholder='Password' type="password" />
                 <button type='submit'>Login</button>
+                {error && <span>{error}</span>}
             </form>
         </div>
     )

@@ -7,7 +7,7 @@ export default function Register() {
     const navigate = useNavigate();
 
 
-    const [error, setError] = useState(false)
+    const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const [formData, setFormData] = useState({
         email: '',
@@ -31,8 +31,12 @@ export default function Register() {
             navigate("/login");
         }
         catch (error) {
-            console.error('There was an error registering!', error);
+            console.error(error);
+            setError(error.response.data.message);
+
+
         } finally {
+            console.log(error)
             setLoading(false)
 
         }
@@ -53,7 +57,7 @@ export default function Register() {
                 <input required name='password' value={formData.password} onChange={handleChange} placeholder='Password' type="password" />
                 <button type='submit'>Register</button>
                 <span onClick={() => navigate('/login')}>Already have an account</span>
-
+                {error && <span>{error}</span>}
             </form>
         </div>
     )
