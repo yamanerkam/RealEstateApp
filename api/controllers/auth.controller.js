@@ -7,23 +7,36 @@ export const register = async (req, res) => {
     const { username, email, password } = req.body
     console.log("Request Body:", req.body);
     console.log("Password:", password);
-
+    console.log(username, email, password)
     const hashedPassword = await bcrypt.hash(password, 10)
     console.log(hashedPassword)
     try {
-        const userDBusername = await prisma.user.findUnique({
-            where: { username }
-        })
-        const userDBemail = await prisma.user.findUnique({
+
+        const userEmail = await prisma.user.findUnique({
             where: { email }
         })
-        if (userDBusername.username === username) {
-            return res.status(401).json({ message: 'username is taken!' })
+
+        const userUsername = await prisma.user.findUnique({
+            where: { username }
+        })
+
+        if (userEmail) {
+            if (userEmail.email === email) {
+                return res.status(401).json({ message: 'email is taken!' })
+            }
         }
 
-        if (userDBemail.email === email) {
-            return res.status(401).json({ message: 'email is taken!' })
+        if (userUsername) {
+            console.log(userUsername)
+            if (userUsername.username === username) {
+                return res.status(401).json({ message: 'username is taken!' })
+            }
         }
+
+
+
+
+
         const newUser = await prisma.user.create({
             data: {
                 username,
@@ -31,10 +44,6 @@ export const register = async (req, res) => {
                 password: hashedPassword,
             }
         })
-
-
-
-        if (!user) return res.status(401).json({ message: 'user not found!' })
 
         res.status(201).json({ message: 'user created succesfully' })
     } catch (error) {
