@@ -7,7 +7,8 @@ export default function Register() {
     const navigate = useNavigate();
 
 
-
+    const [error, setError] = useState(false)
+    const [loading, setLoading] = useState(false)
     const [formData, setFormData] = useState({
         email: '',
         username: '',
@@ -15,6 +16,8 @@ export default function Register() {
     })
     const handleSubmit = async (e) => {
         e.preventDefault()
+        setLoading(true)
+
         console.log(formData)
 
         try {
@@ -29,6 +32,9 @@ export default function Register() {
         }
         catch (error) {
             console.error('There was an error registering!', error);
+        } finally {
+            setLoading(false)
+
         }
 
 

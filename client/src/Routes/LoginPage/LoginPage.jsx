@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 
 export default function LoginPage() {
     const navigate = useNavigate();
+    const [error, setError] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const [formData, setFormData] = useState({
         username: '',
@@ -13,7 +15,7 @@ export default function LoginPage() {
     })
     const handleSubmit = async (e) => {
         e.preventDefault()
-
+        setLoading(true)
         try {
             const res = await axios.post('http://localhost:3001/api/auth/login', {
                 username: formData.username,
@@ -24,6 +26,9 @@ export default function LoginPage() {
             navigate('/profile')
         } catch (error) {
             console.error('There was an error registering!', error);
+
+        } finally {
+            setLoading(false)
 
         }
 
@@ -37,6 +42,7 @@ export default function LoginPage() {
     return (
         <div className='login-page'>
             <form onSubmit={handleSubmit}>
+                <h1>Welcome back!</h1>
                 <input required name='username' onChange={handleChange} value={formData.username} placeholder='Username' type="text" />
                 <input required name='password' onChange={handleChange} value={formData.password} placeholder='Password' type="password" />
                 <button type='submit'>Login</button>
