@@ -10,7 +10,9 @@ export const admin = async (req, res) => {
 
     if (!token) return res.status(401).json({ message: 'not Authenticated' })
     try {
-        jwt.verify(token, process.env.JWT_SECRET_KEY)
+        const payload = jwt.verify(token, process.env.JWT_SECRET_KEY)
+        console.log(payload)
+        if (!payload.isAdmin) return res.status(403).json({ message: 'not authorised' })
     } catch (err) {
         if (err) return res.status(403).json({ message: 'Token is not valid!' })
     }
@@ -21,8 +23,14 @@ export const admin = async (req, res) => {
 
 export const loggedIn = async (req, res) => {
     const token = req.cookies.token
-    if (!token) return res.status(401).json({ message: 'no user logged in' })
-    console.log(token)
-    console.log('logged-in is succesful')
-    res.send('logged-in')
+
+    if (!token) return res.status(401).json({ message: 'not Authenticated' })
+    try {
+        jwt.verify(token, process.env.JWT_SECRET_KEY)
+    } catch (err) {
+        if (err) return res.status(403).json({ message: 'Token is not valid!' })
+    }
+
+
+    res.status(200).json("user is authenticated")
 }
