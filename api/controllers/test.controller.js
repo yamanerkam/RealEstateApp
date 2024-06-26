@@ -7,12 +7,15 @@ dotenv.config()
 
 export const admin = async (req, res) => {
     const token = req.cookies.token
-    if (!token) return res.status(401).json({ message: 'not Authenticated' })
-    console.log(token)
 
-    jwt.verify(token, process.env.JWT_SECRET_KEY, async (err, payload) => {
+    if (!token) return res.status(401).json({ message: 'not Authenticated' })
+    try {
+        jwt.verify(token, process.env.JWT_SECRET_KEY)
+    } catch (err) {
         if (err) return res.status(403).json({ message: 'Token is not valid!' })
-    })
+    }
+
+
     res.status(200).json("admin is authenticated")
 }
 
