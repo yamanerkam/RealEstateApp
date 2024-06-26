@@ -10,7 +10,7 @@
     font-size: 2em;
 }
 
-.register-page span {
+.register-page .navigate {
     font-size: 0.9em;
     text-decoration: underline;
     color: gray;

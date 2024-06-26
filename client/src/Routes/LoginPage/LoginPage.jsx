@@ -46,7 +46,7 @@ export default function LoginPage() {
                 <h1>Welcome back!</h1>
                 <input required name='username' onChange={handleChange} value={formData.username} placeholder='Username' type="text" />
                 <input required name='password' onChange={handleChange} value={formData.password} placeholder='Password' type="password" />
-                <button type='submit'>Login</button>
+                <button disabled={loading} type='submit'>Login</button>
                 {error && <span>{error}</span>}
             </form>
         </div>
