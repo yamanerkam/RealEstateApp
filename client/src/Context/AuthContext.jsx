@@ -14,9 +14,7 @@ const AuthProvider = ({ children }) => {
         localStorage.setItem('user', JSON.stringify(currentUser))
     }, [currentUser])
 
-    const logout = () => {
 
-    }
 
     return (
         <AuthContext.Provider value={{ currentUser, updateUser }}>

@@ -24,7 +24,7 @@ export default function LoginPage() {
                 password: formData.password
             }, { withCredentials: true })
             updateUser(res.data)
-            //navigate('/profile')
+            navigate('/profile')
         } catch (error) {
             setError(error.response.data.message);
             console.error('There was an error registering!', error);

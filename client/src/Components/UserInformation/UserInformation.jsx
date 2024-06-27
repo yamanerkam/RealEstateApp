@@ -1,26 +1,37 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import './UserInformation.css'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { AuthContext } from '../../Context/AuthContext.jsx';
+
 
 
 export default function UserInformation({ img, username, email }) {
+    const { currentUser, updateUser } = useContext(AuthContext)
+
+    const [error, setError] = useState('')
+    const [loading, setLoading] = useState(false)
     const navigate = useNavigate();
     const handleLogout = async () => {
         console.log('clicked')
+        setLoading(true)
         try {
             const res = await axios.post('http://localhost:3001/api/auth/logout', null,
                 { withCredentials: true })
 
             console.log(res)
             if (res.status === 200) {
-                localStorage.removeItem('user');
+                updateUser('')
                 navigate('/login');
             } else {
                 console.error('Logout failed:', res.data.message); // Handle errors
             }
         } catch (error) {
+            setError(error.response.data.message);
+
             console.log(error)
+        } finally {
+            setLoading(false)
         }
     }
     return (
@@ -44,7 +55,9 @@ export default function UserInformation({ img, username, email }) {
                 <span>
                     E-mail: <b>{email}</b>
                 </span>
-                <button onClick={handleLogout} className='ui-top-btn lgt'>Logout</button>
+                <button disabled={loading} onClick={handleLogout} className='ui-top-btn lgt'>Logout</button>
+                {error && <span>{error}</span>}
+
             </div>
         </div>
     )
