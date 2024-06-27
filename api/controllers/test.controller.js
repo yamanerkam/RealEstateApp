@@ -2,7 +2,6 @@ import bcrypt from 'bcrypt'
 import prisma from '../lib/prisma.js'
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
-import { verifyToken } from '../middleware/verifyToken.js'
 dotenv.config()
 
 

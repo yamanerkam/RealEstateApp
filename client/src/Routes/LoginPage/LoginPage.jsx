@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import './LoginPage.css'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+import { AuthContext } from '../../Context/AuthContext.jsx';
 
 export default function LoginPage() {
+    const { user, changeUser, login, logout } = useContext(AuthContext)
+    console.log(user)
     const navigate = useNavigate();
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
@@ -48,6 +50,8 @@ export default function LoginPage() {
                 <input required name='password' onChange={handleChange} value={formData.password} placeholder='Password' type="password" />
                 <button disabled={loading} type='submit'>Login</button>
                 {error && <span>{error}</span>}
+                {user && <span>{user}</span>}
+
             </form>
         </div>
     )
