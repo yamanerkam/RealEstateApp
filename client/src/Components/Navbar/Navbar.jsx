@@ -3,7 +3,7 @@ import './Navbar.css'
 import { MdOutlineRealEstateAgent } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AuthContext } from '../../Context/AuthContext';
-import catPP from '../../../src/assets/cat.webp'
+import noavatar from '../../../src/assets/noavatar.jpg'
 
 export default function Navbar() {
     const [toggle, setToggle] = useState(false)
@@ -35,7 +35,7 @@ export default function Navbar() {
                 <a href="">Sign up</a>
             </div>
             {currentUser && (<div className={`left`}>
-                <img src={currentUser.avatar || catPP} alt="" />
+                <img src={currentUser.avatar || noavatar} alt="" />
                 <span href="">{currentUser.username}</span>
                 <a href="/profile">Profile</a>
             </div>)}
