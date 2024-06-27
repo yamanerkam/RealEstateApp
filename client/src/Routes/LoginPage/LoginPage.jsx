@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContext.jsx';
 
 export default function LoginPage() {
-    const { user, changeUser, login, logout } = useContext(AuthContext)
-    console.log(user)
+    const { currentUser, updateUser } = useContext(AuthContext)
+    console.log(currentUser)
     const navigate = useNavigate();
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
@@ -23,9 +23,8 @@ export default function LoginPage() {
                 username: formData.username,
                 password: formData.password
             }, { withCredentials: true })
-
-            localStorage.setItem('user', JSON.stringify(res.data))
-            navigate('/profile')
+            updateUser(res.data)
+            //navigate('/profile')
         } catch (error) {
             setError(error.response.data.message);
             console.error('There was an error registering!', error);
@@ -50,7 +49,6 @@ export default function LoginPage() {
                 <input required name='password' onChange={handleChange} value={formData.password} placeholder='Password' type="password" />
                 <button disabled={loading} type='submit'>Login</button>
                 {error && <span>{error}</span>}
-                {user && <span>{user}</span>}
 
             </form>
         </div>

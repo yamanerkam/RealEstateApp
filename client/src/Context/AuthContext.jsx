@@ -1,22 +1,25 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 
 const AuthContext = createContext()
 
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState('kam')
-    const changeUser = (userName) => {
-        setUser(userName)
+    const [currentUser, setCurrentUser] = useState(
+        JSON.parse(localStorage.getItem('user')) || null
+    )
+
+    const updateUser = (data) => {
+        setCurrentUser(data)
     }
-    const login = (user) => {
-        setUser(user)
-    }
+    useEffect(() => {
+        localStorage.setItem('user', JSON.stringify(currentUser))
+    }, [currentUser])
 
     const logout = () => {
-        setUser(null)
+
     }
 
     return (
-        <AuthContext.Provider value={{ user, changeUser, login, logout }}>
+        <AuthContext.Provider value={{ currentUser, updateUser }}>
             {children}
         </AuthContext.Provider>
     )

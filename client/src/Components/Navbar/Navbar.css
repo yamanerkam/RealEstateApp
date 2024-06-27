@@ -55,6 +55,10 @@
     transition: width 1s ease;
 }
 
+.left-off {
+    display: none !important;
+}
+
 .linksBa a:hover::after {
     width: 100%;
 }
@@ -102,13 +106,20 @@
 }
 
 .left {
-
     width: 30%;
     display: flex;
     margin: 0;
     justify-content: flex-end;
+    align-items: center;
     gap: 15px;
     padding: 20px 0;
+}
+
+.left img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
 
 
 }
