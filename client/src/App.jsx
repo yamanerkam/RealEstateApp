@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import Navbar from './Components/Navbar/Navbar'
 import HomePage from './Routes/HomePage/HomePage'
@@ -8,14 +7,15 @@ import SinglePage from './Routes/SinglePage/SinglePage';
 import LoginPage from './Routes/LoginPage/LoginPage';
 import ProfilePage from './Routes/ProfilePage/ProfilePage';
 import Register from './Routes/RegisterPage/Register';
+import PublicRoute from './RouterProtection/PublicRoute';
+import PrivateRoute from './RouterProtection/PrivateRoute';
+
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element:
-        <HomePage />
-      ,
+      element: <HomePage />,
     },
     {
       path: "/list",
@@ -26,17 +26,36 @@ function App() {
       element: <SinglePage />,
     },
     {
-      path: "/login",
-      element: <LoginPage />,
+      element: <PublicRoute />,
+      children: [
+        {
+          path: "/login",
+          element: <LoginPage />,
+        },
+        {
+          path: "/register",
+          element: <Register />,
+        },
+      ],
     },
     {
-      path: "/register",
-      element: <Register />,
+      element: <PrivateRoute />,
+      children: [
+        {
+          path: "/profile",
+          element: <ProfilePage />,
+        },
+      ],
     },
-    {
-      path: "/profile",
-      element: <ProfilePage />,
-    },
+
+
+
+
+
+
+
+
+
   ]);
   return (
     <div className='app' >
