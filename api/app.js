@@ -13,6 +13,7 @@ app.use(cookieParser())
 
 app.use('/api/auth', authRoute)
 app.use('/api/test', testRoute)
+app.use('/api/user', userRoute)
 
 app.use('/api/test', (req, res) => {
     res.send('it works')
