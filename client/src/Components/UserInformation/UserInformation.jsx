@@ -39,7 +39,10 @@ export default function UserInformation({ img, username, email }) {
             <div className="ui-top">
                 <h1>User Information
                 </h1>
-                <button className='ui-top-btn'>Update Profile</button>
+                <button onClick={() => navigate('/update')}
+                    className='ui-top-btn'>
+                    Update Profile
+                </button>
             </div>
             <div className="user-info-ui">
                 <span className='user-img'>
@@ -59,6 +62,6 @@ export default function UserInformation({ img, username, email }) {
                 {error && <span>{error}</span>}
 
             </div>
-        </div>
+        </div >
     )
 }

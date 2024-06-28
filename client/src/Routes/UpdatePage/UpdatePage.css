@@ -1,0 +1,70 @@
+.update-page {
+    margin-top: 5%;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+
+}
+
+.update-page h1 {
+    font-size: 2em;
+    margin-bottom: 1rem;
+}
+
+.update-page label {
+    font-size: 1em;
+    margin-bottom: 0.5rem;
+}
+
+.update-page form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1em;
+    width: 400px;
+}
+
+.update-page form input[type="text"],
+.update-page form input[type="password"] {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.update-page form button {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #fece51;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.update-page form button:hover {
+    background-color: #e0b844;
+}
+
+.update-page .image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    padding: 1rem;
+}
+
+.update-page .image-container img {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    border-radius: 50%;
+    object-fit: cover;
+}

@@ -9,6 +9,7 @@ import ProfilePage from './Routes/ProfilePage/ProfilePage';
 import Register from './Routes/RegisterPage/Register';
 import PublicRoute from './RouterProtection/PublicRoute';
 import PrivateRoute from './RouterProtection/PrivateRoute';
+import UpdatePage from './Routes/UpdatePage/UpdatePage';
 
 
 function App() {
@@ -45,6 +46,10 @@ function App() {
           path: "/profile",
           element: <ProfilePage />,
         },
+        {
+          path: '/update',
+          element: <UpdatePage />
+        }
       ],
     },
 
