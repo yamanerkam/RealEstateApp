@@ -1,19 +1,12 @@
 import express from "express";
 const router = express.Router()
+import { getUser, getUsers, updateUser, deleteUser } from "../controllers/user.controller.js";
+
 router.use(express.json());
 
-router.get('/', (req, res) => {
-    res.send('user-route')
-})
-
-router.get('/user', (req, res) => {
-    res.send('user')
-})
-
-router.get('/user/:id', (req, res) => {
-    const userId = req.params.id;
-
-    res.send(`user id is ${userId}`)
-})
+router.get('/', getUsers)
+router.get('/:id', getUser)
+router.put('/:id', updateUser)
+router.delete('/:id', deleteUser)
 
 export default router
