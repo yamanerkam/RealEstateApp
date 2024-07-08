@@ -30,6 +30,12 @@ export const getUser = async (req, res) => {
 
 export const updateUser = async (req, res) => {
     const id = req.params.id
+    const tokenUserId = req.userId;
+
+    if (id !== tokenUserId) {
+        return res.status(403).json({ message: "Not Authorized!" });
+    }
+
     const newUsername = req.body.username
     console.log(newUsername)
     try {
@@ -51,6 +57,11 @@ export const updateUser = async (req, res) => {
 
 export const deleteUser = async (req, res) => {
     const id = req.params.id
+    const tokenUserId = req.userId;
+
+    if (id !== tokenUserId) {
+        return res.status(403).json({ message: "Not Authorized!" });
+    }
 
     try {
         const deleteUser = await prisma.user.delete({
