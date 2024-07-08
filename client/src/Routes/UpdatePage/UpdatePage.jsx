@@ -3,10 +3,11 @@ import './UpdatePage.css'
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContext';
 import noavatar from '../../../src/assets/noavatar.jpg'
+import axios from 'axios';
 
 export default function UpdatePage() {
     const navigate = useNavigate();
-    const { currentUser } = useContext(AuthContext)
+    const { currentUser, updateUser } = useContext(AuthContext)
 
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
@@ -17,8 +18,16 @@ export default function UpdatePage() {
     })
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(currentUser)
-
+        console.log(currentUser.id)
+        try {
+            const res = await axios.put(`http://localhost:3001/api/user/${currentUser.id}`, {
+                email: formData.email, username: formData.username, password: formData.password
+            }, { withCredentials: true })
+            updateUser(res.data)
+            console.log(res)
+        } catch (error) {
+            console.log(error)
+        }
 
 
     }
@@ -35,7 +44,7 @@ export default function UpdatePage() {
                 <label htmlFor="username">Username</label>
                 <input required name='username' defaultValue={currentUser.username} onChange={handleChange} placeholder='Username' type="text" />
                 <label htmlFor="password">Password</label>
-                <input required name='password' value={formData.password} onChange={handleChange} placeholder='Password' type="password" />
+                <input name='password' value={formData.password} onChange={handleChange} placeholder='Password' type="password" />
                 <button disabled={loading} type='submit'>Update</button>
                 {error && <span>{error}</span>}
             </form>
