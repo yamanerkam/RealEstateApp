@@ -4,10 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContext';
 import noavatar from '../../../src/assets/noavatar.jpg'
 import axios from 'axios';
+import UploadWidget from '../uploadWidget/UploadWidget';
 
 export default function UpdatePage() {
     const navigate = useNavigate();
     const { currentUser, updateUser } = useContext(AuthContext)
+
+    const [avatar, setAvatar] = useState(currentUser.avatar);
 
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
@@ -21,11 +24,13 @@ export default function UpdatePage() {
         console.log(currentUser.id)
         try {
             const res = await axios.put(`http://localhost:3001/api/user/${currentUser.id}`, {
-                email: formData.email, username: formData.username, password: formData.password
+                email: formData.email, username: formData.username, password: formData.password, avatar: avatar
             }, { withCredentials: true })
             updateUser(res.data)
             console.log(res)
+            navigate('/profile')
         } catch (error) {
+            setError(error.response.data.msg)
             console.log(error)
         }
 
@@ -49,7 +54,17 @@ export default function UpdatePage() {
                 {error && <span>{error}</span>}
             </form>
             <div className="image-container">
-                <img src={currentUser.avatar || noavatar} alt="User Avatar" />
-            </div>        </div>
+                <img src={avatar || noavatar} alt="User Avatar" />
+                <UploadWidget uwConfig={{
+                    cloudName: "dccx055uf",
+                    uploadPreset: "estate",
+                    multiple: false,
+                    maxImageFileSize: 2000000,
+                    folder: "avatars",
+                }}
+                    setState={setAvatar}
+                />
+            </div>
+        </div>
     )
 }
