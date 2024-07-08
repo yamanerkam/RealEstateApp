@@ -31,8 +31,8 @@ export default function Navbar() {
             </div>
 
             <div className={`left ${currentUser && 'left-off'}`}>
-                <a href="">Sign in</a>
-                <a href="">Sign up</a>
+                <a href="/login">Sign in</a>
+                <a href="/register">Sign up</a>
             </div>
             {currentUser && (<div className={`left`}>
                 <img src={currentUser.avatar || noavatar} alt="" />
