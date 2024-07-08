@@ -19,12 +19,16 @@ export default function UpdatePage() {
         username: '',
         password: ''
     })
+
     const handleSubmit = async (e) => {
         e.preventDefault()
+        const formData = new FormData(e.target);
+        const { username, email, password } = Object.fromEntries(formData);
+
         console.log(currentUser.id)
         try {
             const res = await axios.put(`http://localhost:3001/api/user/${currentUser.id}`, {
-                email: formData.email, username: formData.username, password: formData.password, avatar: avatar
+                username, email, password, avatar
             }, { withCredentials: true })
             updateUser(res.data)
             console.log(res)
