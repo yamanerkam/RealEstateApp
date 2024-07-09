@@ -21,6 +21,7 @@ export default function UpdatePage() {
     })
 
     const handleSubmit = async (e) => {
+        setLoading(true)
         e.preventDefault()
         const formData = new FormData(e.target);
         const { username, email, password } = Object.fromEntries(formData);
@@ -36,6 +37,8 @@ export default function UpdatePage() {
         } catch (error) {
             setError(error.response.data.msg)
             console.log(error)
+        } finally {
+            setLoading(false)
         }
 
 
