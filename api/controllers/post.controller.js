@@ -3,7 +3,16 @@ import prisma from '../lib/prisma.js'
 
 export const getPosts = async (req, res) => {
     try {
-        const posts = await prisma.post.findMany()
+        const posts = await prisma.post.findMany({
+            include: {
+                user: {
+                    select: {
+                        username: true,
+                        avatar: true
+                    }
+                }
+            }
+        })
         res.send(posts)
     } catch (error) {
         console.log(error)
