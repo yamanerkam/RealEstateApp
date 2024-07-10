@@ -1,3 +1,4 @@
+import { create } from 'domain'
 import prisma from '../lib/prisma.js'
 
 export const getPosts = async (req, res) => {
@@ -15,6 +16,15 @@ export const getPost = async (req, res) => {
     try {
         const post = await prisma.post.findUnique({
             where: { id },
+            include: {
+                PostDetail: true,
+                user: {
+                    select: {
+                        username: true,
+                        avatar: true
+                    }
+                }
+            }
         })
         res.status(200).json({ post })
     } catch (error) {
@@ -30,14 +40,16 @@ export const addPost = async (req, res) => {
     try {
         const newPost = await prisma.post.create({
             data: {
-                ...body,
+                ...body.postData,
                 userId: tokenUserId,
-            }
-        })
-        res.send(newPost)
+                PostDetail: { create: body.postDetail }
+            },
+        });
+        console.log(newPost)
+        res.status(200).json(newPost);
     } catch (error) {
         console.log(error)
-        res.status(500).json({ msg: 'failed to add a user ' })
+        res.status(500).json({ msg: 'failed to add a post ' })
     }
 }
 
