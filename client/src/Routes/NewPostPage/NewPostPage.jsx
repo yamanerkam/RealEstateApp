@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './NewPostPage.css'
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+
 export default function NewPostPage() {
+    const [value, setValue] = useState('');
+
     return (
         <div className="newPostPage">
             <div className="formContainer">
@@ -21,7 +26,7 @@ export default function NewPostPage() {
                         </div>
                         <div className="item description">
                             <label for="desc">Description</label>
-                            <textarea id="desc" name="desc"></textarea>
+                            <ReactQuill theme="snow" value={value} onChange={setValue} />
                         </div>
                         <div className="item">
                             <label for="city">City</label>
