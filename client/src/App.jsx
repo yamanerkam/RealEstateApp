@@ -10,6 +10,7 @@ import Register from './Routes/RegisterPage/Register';
 import PublicRoute from './RouterProtection/PublicRoute';
 import PrivateRoute from './RouterProtection/PrivateRoute';
 import UpdatePage from './Routes/UpdatePage/UpdatePage';
+import NewPostPage from './Routes/NewPostPage/NewPostPage';
 
 
 function App() {
@@ -49,6 +50,9 @@ function App() {
         {
           path: '/update',
           element: <UpdatePage />
+        }, {
+          path: '/new-post',
+          element: <NewPostPage />
         }
       ],
     },

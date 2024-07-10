@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react'
 import './ProfilePage.css'
 import noavatar from '../../../src/assets/noavatar.jpg'
+import { useNavigate } from 'react-router-dom';
+
 import { listData } from '../../Lib/dummydata'
 import UserInformation from '../../Components/UserInformation/UserInformation'
 import HouseCard from '../../Components/HouseCard/HouseCard'
@@ -10,7 +12,7 @@ import { AuthContext } from '../../Context/AuthContext';
 
 export default function ProfilePage() {
     const { currentUser } = useContext(AuthContext)
-
+    const navigate = useNavigate()
     return (
         <div className='profile-page'>
             <div className='user-info'>
@@ -21,7 +23,7 @@ export default function ProfilePage() {
                             <div className="ui-top">
                                 <h1>My List
                                 </h1>
-                                <button className='ui-top-btn'>Create a New Post</button>
+                                <button onClick={() => navigate('/new-post')} className='ui-top-btn'>Create a New Post</button>
 
                             </div>
                         </div>
@@ -85,6 +87,6 @@ export default function ProfilePage() {
             </div>
 
 
-        </div>
+        </div >
     )
 }
