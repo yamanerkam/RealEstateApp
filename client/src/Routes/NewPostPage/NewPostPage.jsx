@@ -2,54 +2,98 @@ import React, { useState } from 'react'
 import './NewPostPage.css'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import axios from 'axios';
 
 export default function NewPostPage() {
     const [value, setValue] = useState('');
+    const [error, setError] = useState()
+    const [images, setImages] = useState([]);
+    const [loading, setLoading] = useState(false)
+    const handleSubmit = async (e) => {
+        setLoading(true)
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const inputs = Object.fromEntries(formData);
+        try {
+            const data = await axios.post('http://localhost:3001/api/post', {
+                postData: {
+                    title: inputs.title,
+                    price: parseInt(inputs.price),
+                    address: inputs.address,
+                    city: inputs.city,
+                    bedroom: parseInt(inputs.bedroom),
+                    bathroom: parseInt(inputs.bathroom),
+                    type: inputs.type,
+                    property: inputs.property,
+                    latitude: inputs.latitude,
+                    longitude: inputs.longitude,
+                    images: images,
+                },
+                postDetail: {
+                    desc: value,
+                    utilities: inputs.utilities,
+                    pet: inputs.pet,
+                    income: inputs.income,
+                    size: parseInt(inputs.size),
+                    school: parseInt(inputs.school),
+                    bus: parseInt(inputs.bus),
+                    restaurant: parseInt(inputs.restaurant),
+                },
+            }, { withCredentials: true })
+            console.log(data.data.id)
+        } catch (error) {
+            console.log(error)
+        } finally {
+            setLoading(false)
+        }
+
+        console.log(inputs)
+    }
 
     return (
         <div className="newPostPage">
             <div className="formContainer">
                 <h1>Add New Post</h1>
                 <div className="wrapper">
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <div className="item">
-                            <label for="title">Title</label>
+                            <label htmlFor="title">Title</label>
                             <input id="title" name="title" type="text" />
                         </div>
                         <div className="item">
-                            <label for="price">Price</label>
+                            <label htmlFor="price">Price</label>
                             <input id="price" name="price" type="number" />
                         </div>
                         <div className="item">
-                            <label for="address">Address</label>
+                            <label htmlFor="address">Address</label>
                             <input id="address" name="address" type="text" />
                         </div>
                         <div className="item description">
-                            <label for="desc">Description</label>
+                            <label>Description</label>
                             <ReactQuill theme="snow" value={value} onChange={setValue} />
                         </div>
                         <div className="item">
-                            <label for="city">City</label>
+                            <label htmlFor="city">City</label>
                             <input id="city" name="city" type="text" />
                         </div>
                         <div className="item">
-                            <label for="bedroom">Bedroom Number</label>
+                            <label htmlFor="bedroom">Bedroom Number</label>
                             <input min="1" id="bedroom" name="bedroom" type="number" />
                         </div>
                         <div className="item">
-                            <label for="bathroom">Bathroom Number</label>
+                            <label htmlFor="bathroom">Bathroom Number</label>
                             <input min="1" id="bathroom" name="bathroom" type="number" />
                         </div>
                         <div className="item">
-                            <label for="latitude">Latitude</label>
+                            <label htmlFor="latitude">Latitude</label>
                             <input id="latitude" name="latitude" type="text" />
                         </div>
                         <div className="item">
-                            <label for="longitude">Longitude</label>
+                            <label htmlFor="longitude">Longitude</label>
                             <input id="longitude" name="longitude" type="text" />
                         </div>
                         <div className="item">
-                            <label for="type">Type</label>
+                            <label htmlFor="type">Type</label>
                             <select name="type">
                                 <option value="rent" selected>
                                     Rent
@@ -58,7 +102,7 @@ export default function NewPostPage() {
                             </select>
                         </div>
                         <div className="item">
-                            <label for="property">Property</label>
+                            <label htmlFor="property">Property</label>
                             <select name="property">
                                 <option value="apartment">Apartment</option>
                                 <option value="house">House</option>
@@ -67,7 +111,7 @@ export default function NewPostPage() {
                             </select>
                         </div>
                         <div className="item">
-                            <label for="utilities">Utilities Policy</label>
+                            <label htmlFor="utilities">Utilities Policy</label>
                             <select name="utilities">
                                 <option value="owner">Owner is responsible</option>
                                 <option value="tenant">Tenant is responsible</option>
@@ -75,34 +119,34 @@ export default function NewPostPage() {
                             </select>
                         </div>
                         <div className="item">
-                            <label for="pet">Pet Policy</label>
+                            <label htmlFor="pet">Pet Policy</label>
                             <select name="pet">
                                 <option value="allowed">Allowed</option>
                                 <option value="not-allowed">Not Allowed</option>
                             </select>
                         </div>
                         <div className="item">
-                            <label for="income">Income Policy</label>
+                            <label htmlFor="income">Income Policy</label>
                             <input id="income" name="income" type="text" placeholder="Income Policy" />
                         </div>
                         <div className="item">
-                            <label for="size">Total Size (sqft)</label>
+                            <label htmlFor="size">Total Size (sqft)</label>
                             <input min="0" id="size" name="size" type="number" />
                         </div>
                         <div className="item">
-                            <label for="school">School</label>
+                            <label htmlFor="school">School</label>
                             <input min="0" id="school" name="school" type="number" />
                         </div>
                         <div className="item">
-                            <label for="bus">Bus</label>
+                            <label htmlFor="bus">Bus</label>
                             <input min="0" id="bus" name="bus" type="number" />
                         </div>
                         <div className="item">
-                            <label for="restaurant">Restaurant</label>
+                            <label htmlFor="restaurant">Restaurant</label>
                             <input min="0" id="restaurant" name="restaurant" type="number" />
                         </div>
-                        <button className="sendButton">Add</button>
-                        <span>error</span>
+                        <button type='submit' className="sendButton">Add</button>
+                        {error && <span>{error}</span>}
                     </form>
                 </div>
             </div>
