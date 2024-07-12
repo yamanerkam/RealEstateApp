@@ -1,13 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './NewPostPage.css'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import axios from 'axios';
+import UploadWidget from '../../Components/UploadWidget/uploadWidget.jsx';
 
 export default function NewPostPage() {
     const [value, setValue] = useState('');
     const [error, setError] = useState()
     const [images, setImages] = useState([]);
+    useEffect(() => {
+        console.log(images)
+    }, [images])
     const [loading, setLoading] = useState(false)
     const handleSubmit = async (e) => {
         setLoading(true)
@@ -151,7 +155,18 @@ export default function NewPostPage() {
                 </div>
             </div>
             <div className="sideContainer">
-
+                {images && images.map((image, index) => (
+                    <img src={image} key={index} alt="" />
+                ))}
+                <UploadWidget
+                    uwConfig={{
+                        multiple: true,
+                        cloudName: "dccx055uf",
+                        uploadPreset: "estate",
+                        folder: "posts",
+                    }}
+                    setState={setImages}
+                />
             </div>
         </div>
 
