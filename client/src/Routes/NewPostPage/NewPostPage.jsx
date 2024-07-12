@@ -4,8 +4,10 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import axios from 'axios';
 import UploadWidget from '../../Components/UploadWidget/uploadWidget.jsx';
+import { useNavigate } from 'react-router-dom';
 
 export default function NewPostPage() {
+    const navigate = useNavigate();
     const [value, setValue] = useState('');
     const [error, setError] = useState()
     const [images, setImages] = useState([]);
@@ -44,7 +46,7 @@ export default function NewPostPage() {
                     restaurant: parseInt(inputs.restaurant),
                 },
             }, { withCredentials: true })
-            console.log(data.data.id)
+            navigate('/listing/' + data.data.id)
         } catch (error) {
             console.log(error)
         } finally {
