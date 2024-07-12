@@ -22,13 +22,16 @@ import Map from '../../Components/Map/Map.jsx';
 import { FaChevronRight } from "react-icons/fa";
 import { FaChevronLeft } from "react-icons/fa";
 import { useLoaderData } from 'react-router-dom';
+import parse from 'html-react-parser';
 
 
 
 export default function SinglePage() {
     const post = useLoaderData()
     console.log(post)
-    console.log(post.post.title)
+    const content = post.post.PostDetail.desc
+    const contentReal = parse(content);
+
     const postData = post.post
     const [toggle, setToggle] = useState(false)
     const [images, setImages] = useState([(singlePostData.images)])
@@ -104,7 +107,7 @@ export default function SinglePage() {
                     </div>
 
                     <div className='sp-d-bottom'>
-                        <p>{postData.description}</p>
+                        <p>{contentReal.props.children}</p>
                     </div>
 
                 </div>
