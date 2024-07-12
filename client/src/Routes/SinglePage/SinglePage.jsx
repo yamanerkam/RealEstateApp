@@ -141,7 +141,7 @@ export default function SinglePage() {
                             <PiMoneyThin size={22} className='ft-icon' />
                             <div className="featureText">
                                 <span>Property Fees</span>
-                                <p>Must have 3x the rent in total household income</p>
+                                <p>{postData.PostDetail.income}</p>
                             </div>
                         </div>
                     </div>
@@ -166,22 +166,31 @@ export default function SinglePage() {
                             <LuSchool2 size={22} className='ft-icon' />
                             <div className="featureText">
                                 <span>School</span>
-                                <p>{postData.PostDetail.school}m away</p>
+                                <p>{postData.PostDetail.school > 999
+                                    ? postData.PostDetail.school / 1000 + "km"
+                                    : postData.PostDetail.school + "m"}{" "}
+                                    away</p>
+
                             </div>
                         </div>
                         <div className="feature">
                             <PiBusThin size={22} className='ft-icon' />
                             <div className="featureText">
                                 <span>Bus Stop</span>
-                                <p>{postData.PostDetail.bus}m away</p>
+                                <p>{postData.PostDetail.bus > 999
+                                    ? postData.PostDetail.bus / 1000 + "km"
+                                    : postData.PostDetail.bus + "m"}{" "}
+                                    away</p>
                             </div>
                         </div>
                         <div className="feature">
                             <IoRestaurantOutline size={22} className='ft-icon' />
                             <div className="featureText">
                                 <span>Restaurant</span>
-                                <p>{postData.PostDetail.restaurant}m away</p>
-                            </div>
+                                <p>{postData.PostDetail.restaurant > 999
+                                    ? postData.PostDetail.restaurant / 1000 + "km"
+                                    : postData.PostDetail.restaurant + "m"}{" "}
+                                    away</p>                            </div>
                         </div>
                     </div>
                     <p className="title">Location</p>
