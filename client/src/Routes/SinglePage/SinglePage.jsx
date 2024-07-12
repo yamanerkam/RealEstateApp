@@ -21,10 +21,15 @@ import Map from '../../Components/Map/Map.jsx';
 
 import { FaChevronRight } from "react-icons/fa";
 import { FaChevronLeft } from "react-icons/fa";
+import { useLoaderData } from 'react-router-dom';
 
 
 
 export default function SinglePage() {
+    const post = useLoaderData()
+    console.log(post)
+    console.log(post.post.title)
+    const postData = post.post
     const [toggle, setToggle] = useState(false)
     const [images, setImages] = useState([(singlePostData.images)])
     const [indexOfImg, setIndexOfImg] = useState(null)
@@ -68,7 +73,7 @@ export default function SinglePage() {
                             <div className='slider-wrapper'>
                                 <p onClick={sliderOn}> <IoClose size={64} /></p>
                                 <FaChevronLeft className='sld-btn' onClick={(() => changeImages('left'))} size={64} />
-                                <div className='sld-images'><img src={images[0][indexOfImg]} alt="" /></div>
+                                <div className='sld-images'><img src={postData.images[indexOfImg]} alt="" /></div>
                                 <FaChevronRight className='sld-btn' onClick={(() => changeImages('right'))} size={64} />
 
                             </div>
@@ -76,30 +81,30 @@ export default function SinglePage() {
                         </div>
 
                         <div className='img-left'>
-                            <img className='bigIMG' onClick={(() => sliderOn(0))} src={singlePostData.images[0]} alt="" />
+                            <img className='bigIMG' onClick={(() => sliderOn(0))} src={postData.images[0]} alt="" />
                         </div>
                         <div className='img-right'>
-                            <img className='smallIMG' onClick={(() => sliderOn(1))} src={singlePostData.images[1]} alt="" />
-                            <img className='smallIMG' onClick={(() => sliderOn(2))} src={singlePostData.images[2]} alt="" />
-                            <img className='smallIMG' onClick={(() => sliderOn(3))} src={singlePostData.images[3]} alt="" />
+                            <img className='smallIMG' onClick={(() => sliderOn(1))} src={postData.images[1]} alt="" />
+                            <img className='smallIMG' onClick={(() => sliderOn(2))} src={postData.images[2]} alt="" />
+                            <img className='smallIMG' onClick={(() => sliderOn(3))} src={postData.images[3]} alt="" />
                         </div>
                     </div>
                     <div className='mid-floor'>
                         <div className='mf-left'>
-                            <h1>{singlePostData.title}</h1>
+                            <h1>{postData.title}</h1>
                             <span className='address'> <IoLocationOutline className='loc-icon' size={22} />
-                                <p>{singlePostData.address}</p></span>
-                            <p className='price'>$ {singlePostData.price}</p>
+                                <p>{postData.address}</p></span>
+                            <p className='price'>$ {postData.price}</p>
                         </div>
 
                         <div className='mf-right'>
-                            <img src={catPP} alt="" />
-                            <p className="userName">Erkam Yaman</p>
+                            <img src={postData.user.avatar} alt="" />
+                            <p className="userName">{postData.user.username}</p>
                         </div>
                     </div>
 
                     <div className='sp-d-bottom'>
-                        <p>{singlePostData.description}</p>
+                        <p>{postData.description}</p>
                     </div>
 
                 </div>
@@ -112,14 +117,14 @@ export default function SinglePage() {
                             <VscTools size={22} className='ft-icon' />
                             <div className="featureText">
                                 <span>Utilities</span>
-                                <p>Renter is responsible</p>
+                                <p>{postData.PostDetail.utilities} is responsible</p>
                             </div>
                         </div>
                         <div className="feature">
                             <PiPawPrintThin size={22} className='ft-icon' />
                             <div className="featureText">
                                 <span>Pet Policy</span>
-                                <p>Pets Allowed</p>
+                                <p>Pets {postData.PostDetail.pet}</p>
                             </div>
                         </div>
                         <div className="feature">
@@ -134,15 +139,15 @@ export default function SinglePage() {
                     <div className="sizes">
                         <div className="size">
                             <SlSizeFullscreen size={22} className='ft-icon-s' />
-                            <span>80 sqft</span>
+                            <span>{postData.PostDetail.size} sqft</span>
                         </div>
                         <div className="size">
                             <IoBedOutline size={22} className='ft-icon-s' />
-                            <span>2 beds</span>
+                            <span>{postData.bedroom} beds</span>
                         </div>
                         <div className="size">
                             <FaBath size={22} className='ft-icon-s' />
-                            <span>1 bathroom</span>
+                            <span>{postData.bathroom} bathroom</span>
                         </div>
                     </div>
                     <p className="title">Nearby Places</p>
@@ -151,21 +156,21 @@ export default function SinglePage() {
                             <LuSchool2 size={22} className='ft-icon' />
                             <div className="featureText">
                                 <span>School</span>
-                                <p>250m away</p>
+                                <p>{postData.PostDetail.school}m away</p>
                             </div>
                         </div>
                         <div className="feature">
                             <PiBusThin size={22} className='ft-icon' />
                             <div className="featureText">
                                 <span>Bus Stop</span>
-                                <p>100m away</p>
+                                <p>{postData.PostDetail.bus}m away</p>
                             </div>
                         </div>
                         <div className="feature">
                             <IoRestaurantOutline size={22} className='ft-icon' />
                             <div className="featureText">
                                 <span>Restaurant</span>
-                                <p>200m away</p>
+                                <p>{postData.PostDetail.restaurant}m away</p>
                             </div>
                         </div>
                     </div>

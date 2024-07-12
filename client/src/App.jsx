@@ -11,6 +11,7 @@ import PublicRoute from './RouterProtection/PublicRoute';
 import PrivateRoute from './RouterProtection/PrivateRoute';
 import UpdatePage from './Routes/UpdatePage/UpdatePage';
 import NewPostPage from './Routes/NewPostPage/NewPostPage';
+import { singlePageLoader } from './Lib/loaders';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
     {
       path: "/listing/:id",
       element: <SinglePage />,
+      loader: singlePageLoader
     },
     {
       element: <PublicRoute />,
