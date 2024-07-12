@@ -120,14 +120,21 @@ export default function SinglePage() {
                             <VscTools size={22} className='ft-icon' />
                             <div className="featureText">
                                 <span>Utilities</span>
-                                <p>{postData.PostDetail.utilities} is responsible</p>
-                            </div>
+                                {postData.PostDetail.utilities === "owner" ? (
+                                    <p>Owner is responsible</p>
+                                ) : (
+                                    <p>Tenant is responsible</p>
+                                )}                            </div>
                         </div>
                         <div className="feature">
                             <PiPawPrintThin size={22} className='ft-icon' />
                             <div className="featureText">
                                 <span>Pet Policy</span>
-                                <p>Pets {postData.PostDetail.pet}</p>
+                                {postData.PostDetail.pet === "allowed" ? (
+                                    <p>Pets Allowed</p>
+                                ) : (
+                                    <p>Pets not Allowed</p>
+                                )}
                             </div>
                         </div>
                         <div className="feature">
