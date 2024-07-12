@@ -36,7 +36,10 @@ export default function SinglePage() {
     const [toggle, setToggle] = useState(false)
     const [images, setImages] = useState([(singlePostData.images)])
     const [indexOfImg, setIndexOfImg] = useState(null)
-
+    const cords = {
+        latitude: postData.latitude,
+        longitude: postData.longitude
+    }
     const sliderOn = (index) => {
         setToggle(!toggle)
         console.log(index)
@@ -196,7 +199,7 @@ export default function SinglePage() {
                     </div>
                     <p className="title">Location</p>
                     <div className="mapContainer">
-                        <Map />
+                        <Map items={[postData]} />
                     </div>
                     <div className="buttons-sp">
                         <button>
