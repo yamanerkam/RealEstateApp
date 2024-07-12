@@ -190,7 +190,8 @@ export default function SinglePage() {
                                 <p>{postData.PostDetail.restaurant > 999
                                     ? postData.PostDetail.restaurant / 1000 + "km"
                                     : postData.PostDetail.restaurant + "m"}{" "}
-                                    away</p>                            </div>
+                                    away</p>
+                            </div>
                         </div>
                     </div>
                     <p className="title">Location</p>
