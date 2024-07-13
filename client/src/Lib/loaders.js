@@ -6,9 +6,9 @@ export const singlePageLoader = async ({ request, params }) => {
 }
 
 export const listPageLoader = async ({ request, params }) => {
-    const querry = request.url.split('?')[1]
-    console.log(querry)
-    const res = await axios.get(`http://localhost:3001/api/post?${querry}`)
+    const query = request.url.split('?')[1]
+    console.log(query)
+    const res = await axios.get(`http://localhost:3001/api/post?${query}`)
     console.log(res.data)
     return res.data
 
