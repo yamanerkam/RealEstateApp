@@ -11,7 +11,7 @@ import PublicRoute from './RouterProtection/PublicRoute';
 import PrivateRoute from './RouterProtection/PrivateRoute';
 import UpdatePage from './Routes/UpdatePage/UpdatePage';
 import NewPostPage from './Routes/NewPostPage/NewPostPage';
-import { singlePageLoader } from './Lib/loaders';
+import { listPageLoader, singlePageLoader } from './Lib/loaders';
 
 
 function App() {
@@ -23,6 +23,7 @@ function App() {
     {
       path: "/list",
       element: <ListPage />,
+      loader: listPageLoader,
     },
     {
       path: "/listing/:id",
