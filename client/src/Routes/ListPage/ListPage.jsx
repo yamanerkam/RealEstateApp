@@ -147,7 +147,7 @@ export default function ListPage() {
                 </div>
             </div>
             <div className='list-right'>
-                <Map items={listData} />
+                <Map items={data} />
             </div>
         </div>
     );
