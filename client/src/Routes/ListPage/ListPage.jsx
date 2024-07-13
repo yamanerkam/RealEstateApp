@@ -135,7 +135,7 @@ export default function ListPage() {
 
                     <div className="items">
 
-                        {listData && listData.map((item) => (
+                        {data && data.map((item) => (
                             <HouseCard
                                 item={item}
                             />
