@@ -4,10 +4,16 @@ import { CiSearch } from "react-icons/ci";
 import { listData } from '../../Lib/dummydata'
 import HouseCard from '../../Components/HouseCard/HouseCard';
 import Map from '../../Components/Map/Map';
+import { useLocation, useSearchParams, useLoaderData, useParams } from 'react-router-dom';
 
 
 export default function ListPage() {
-    const [cityName, setCityName] = useState('London')
+    const data = useLoaderData()
+    const [searchParams] = useSearchParams();
+    const city = searchParams.get('city');
+
+    console.log(city)
+    console.log(data)
     console.log(listData)
     const [formData, setFormData] = useState({
         location: "",
@@ -38,7 +44,7 @@ export default function ListPage() {
             <div className='list-left'>
                 <div className="list-left-wrapper">
                     <span className='list-left-title'>
-                        Search results for <b>{cityName}</b>
+                        Search results for <b>{city}</b>
                     </span>
                     <div className='form-wrapper'>
                         <form onSubmit={handleForm}>

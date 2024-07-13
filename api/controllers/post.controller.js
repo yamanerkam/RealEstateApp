@@ -13,7 +13,7 @@ export const getPosts = async (req, res) => {
                 bedroom: parseInt(query.bedroom) || undefined,
                 price: {
                     gte: parseInt(query.minPrice) || undefined,
-                    lte: parseInt(query.maxPrice) || undefined,
+                    lte: parseInt(query.maxPrice) || 1000000000,
                 },
             },
             include: {
