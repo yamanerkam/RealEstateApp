@@ -36,6 +36,7 @@ export default function HomePage() {
             }
             buyOrRent()
             console.log(loc, min, max, valueOfBR)
+            navigate(`/list?type=${valueOfBR}&city=${loc}&minPrice=${min}&maxPrice=${max}`)
         } catch (error) {
             setError(error.response.data.msg)
         } finally {
@@ -63,7 +64,7 @@ export default function HomePage() {
                             <input name='loc' placeholder='City Location' type="text" />
                             <input name='min' placeholder='Min Price' type="number" />
                             <input name='max' placeholder='Max Price' type="number" />
-                            <button> disabled={loading} < CiSearch size={32} />
+                            <button disabled={loading}>  < CiSearch size={32} />
                             </button>
                         </form>
 
