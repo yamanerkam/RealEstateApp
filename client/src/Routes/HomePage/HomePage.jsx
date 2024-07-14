@@ -2,8 +2,13 @@ import React, { useState } from 'react'
 import './HomePage.css'
 import { CiSearch } from "react-icons/ci";
 import BGpng from '../../assets/bg2.png'
+import { useNavigate } from 'react-router-dom';
+
 import ExperienceOverview from '../../Components/ExperienceOverview/ExperienceOverview.jsx'
 export default function HomePage() {
+    const navigate = useNavigate();
+    const [error, setError] = useState('')
+    const [loading, setLoading] = useState(false)
     const [toggleBlackWhite, setToggleBlackWhite] = useState(true)
     const handleToggle = (value) => {
         if (value == 'buy') {
@@ -14,6 +19,31 @@ export default function HomePage() {
         }
 
     }
+
+    const handleSubmit = async (e) => {
+        try {
+            e.preventDefault()
+            setLoading(true)
+            const formData = new FormData(e.target);
+            const { loc, min, max } = Object.fromEntries(formData);
+            let valueOfBR = '';
+            const buyOrRent = () => {
+                if (toggleBlackWhite) {
+                    valueOfBR = 'buy'
+                } else {
+                    valueOfBR = 'rent'
+                }
+            }
+            buyOrRent()
+            console.log(loc, min, max, valueOfBR)
+        } catch (error) {
+            setError(error.response.data.msg)
+        } finally {
+            setLoading(false)
+
+        }
+    }
+
     return (
         <div className='home'>
 
@@ -29,11 +59,11 @@ export default function HomePage() {
                         <button onClick={() => handleToggle('rent')} className={`rent upBtn ${!toggleBlackWhite && 'activeBtn'}`}>Rent</button>
                     </div>
                     <div className="down">
-                        <form className='down2' action="">
-                            <input placeholder='City Location' type="text" />
-                            <input placeholder='Min Price' type="number" />
-                            <input placeholder='Max Price' type="number" />
-                            <button><CiSearch size={32} />
+                        <form onSubmit={handleSubmit} className='down2' action="">
+                            <input name='loc' placeholder='City Location' type="text" />
+                            <input name='min' placeholder='Min Price' type="number" />
+                            <input name='max' placeholder='Max Price' type="number" />
+                            <button> disabled={loading} < CiSearch size={32} />
                             </button>
                         </form>
 
