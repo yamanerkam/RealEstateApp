@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { Suspense, useState } from 'react'
 import './ListPage.css'
 import { CiSearch } from "react-icons/ci";
 import { listData } from '../../Lib/dummydata'
 import HouseCard from '../../Components/HouseCard/HouseCard';
 import Map from '../../Components/Map/Map';
-import { useLocation, useSearchParams, useLoaderData, useParams } from 'react-router-dom';
+import { Await, useSearchParams, useLoaderData, useParams } from 'react-router-dom';
 
 
 export default function ListPage() {
@@ -135,11 +135,18 @@ export default function ListPage() {
 
                     <div className="items">
 
-                        {data && data.map((item) => (
-                            <HouseCard
-                                item={item}
-                            />
-                        ))}
+                        <Suspense fallback={<p>Loading...</p>}>
+                            <Await
+                                resolve={data.postResponse}
+                                errorElement={<p>Error loading posts!</p>}
+                            >
+                                {(postResponse) =>
+                                    postResponse.data.map((post) => (
+                                        <HouseCard key={post.id} item={post} />
+                                    ))
+                                }
+                            </Await>
+                        </Suspense>
 
                     </div>
 
@@ -147,7 +154,14 @@ export default function ListPage() {
                 </div>
             </div>
             <div className='list-right'>
-                <Map items={data} />
+                <Suspense fallback={<p>Loading...</p>}>
+                    <Await
+                        resolve={data.postResponse}
+                        errorElement={<p>Error loading posts!</p>}
+                    >
+                        {(postResponse) => <Map items={postResponse.data} />}
+                    </Await>
+                </Suspense>
             </div>
         </div>
     );
